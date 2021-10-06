@@ -22,6 +22,7 @@ The software design includes five blocks namely kinematics, path planning, contr
     Based on the feedback from the Kinematics block of the current position of the end effector and the path defined by the Path planning block, the Control           system block ensures that the path is followed by the links and the end-effector reaches the desired target point within a pre-defined error margin.
 
 4. Simulation
+    Matlab will be used for the simulation.
 
 6. Testing
     Software testing will be done to check the repeatability, effectiveness of the output.

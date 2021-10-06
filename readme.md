@@ -1,6 +1,5 @@
 # C++ Boilerplate
-[![Build Status](https://travis-ci.org/dpiet/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/dpiet/cpp-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/dpiet/cpp-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/dpiet/cpp-boilerplate?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/ameyakonk/ENPM808X_Midterm_RRTStar/badge.svg?branch=main)](https://coveralls.io/github/ameyakonk/ENPM808X_Midterm_RRTStar?branch=main)
 ---
 
 ## Overview

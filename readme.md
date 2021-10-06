@@ -31,13 +31,11 @@ The software design includes five blocks namely kinematics, path planning, contr
 file:///home/ameya/Downloads/WhatsApp%20Image%202021-10-06%20at%203.33.33%20PM.jpeg![image](https://user-images.githubusercontent.com/78075049/136273325-7f6e57c6-8a1d-4dbf-bfb1-7363d3868c99.png)
 
 ## Team Members
-...
 
 Sprint 1 : Driver- Ameya Konkar ; Navigator- Rahul Karanam
 
-Sprint 1 : Driver- Rahul Karanam ; Navigator- Ameya Konkar
+Sprint 2 : Driver- Rahul Karanam ; Navigator- Ameya Konkar
 
-...
 ## Standard install via command-line
 ```
 git clone --recursive https://github.com/dpiet/cpp-boilerplate

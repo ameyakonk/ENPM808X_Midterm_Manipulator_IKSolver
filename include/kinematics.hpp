@@ -15,12 +15,14 @@ class Kinematics
 
 std::vector<double> Kinematics::fk_solver(std::vector<double>)
 {
-	return 0;
+	std::vector<double> temp;
+	return temp;
 }
 
 std::vector<double> Kinematics::ik_solver(std::vector<double>)
 {
-        return 0;
+	std::vector<double> temp;
+        return temp;
 }
 
 #endif

@@ -15,7 +15,7 @@ class RRTStar {
 	   double last_goal;
 	   double overall_path;
    public:
-           void set_initial_node(std::vector <double>);
+           void set_initial_node(double);
 	   std::vector <double> get_initial_node();
 	   double get_distance(double, double);
 	   void set_n_iters(int n);
@@ -32,13 +32,14 @@ class RRTStar {
 };
 
 
-void RRTStar::set_initial_node(std::vector <double> _n )
+void RRTStar::set_initial_node(double _n)
 {
         n_iters = _n;
 }
 
 std::vector <double> RRTStar:: get_initial_node() {
-	return 0;
+	std::vector <double> temp;
+	return temp;
 }
 
 double RRTStar::get_distance(double p1, double p2) {

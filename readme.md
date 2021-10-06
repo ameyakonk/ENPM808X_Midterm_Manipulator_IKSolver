@@ -33,7 +33,9 @@ file:///home/ameya/Downloads/WhatsApp%20Image%202021-10-06%20at%203.33.33%20PM.j
 
 ## Team Members
 
-Ameya Konkar  Rahul Karanam
+Ameya Konkar     UID:118191058
+
+Rahul Karanam    UID:118172507
 
 ## Standard install via command-line
 ```

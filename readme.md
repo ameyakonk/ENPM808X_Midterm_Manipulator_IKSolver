@@ -37,6 +37,11 @@ Ameya Konkar     UID:118191058
 
 Rahul Karanam    UID:118172507
 
+Sprint 1: Driver- Ameya Konkar ; Navigator- Rahul Karanam
+
+Sprint 2: Driver- Rahul Karanam ; Navigator- Ameya Konkar
+
+
 ## Standard install via command-line
 ```
 git clone --recursive https://github.com/ameyakonk/ENPM808X_Midterm_RRTStar.git

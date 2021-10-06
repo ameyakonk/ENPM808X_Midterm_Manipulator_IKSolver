@@ -29,7 +29,7 @@ The software design includes five blocks namely kinematics, path planning, contr
     Unit tests will be performed to check the values of encoders and the working of specific functions.
 
 
-file:///home/ameya/Downloads/WhatsApp%20Image%202021-10-06%20at%203.33.33%20PM.jpeg![image](https://user-images.githubusercontent.com/78075049/136273325-7f6e57c6-8a1d-4dbf-bfb1-7363d3868c99.png)
+![alt text](https://user-images.githubusercontent.com/78075049/136273325-7f6e57c6-8a1d-4dbf-bfb1-7363d3868c99.png)
 
 ## Team Members
 

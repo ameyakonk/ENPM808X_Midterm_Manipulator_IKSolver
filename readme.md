@@ -5,7 +5,7 @@
 ## Overview
 A robotic manipulator is used to direct material without direct physical contact with the operator. It was developed to handle hazardous materials or access places that are not easily accessible by humans. At Acme, the manipulator will be used for picking heavy containers from the conveyer belt of the production line and placing it on the packaging line. The manipulator will have four degrees of freedom and will be placed on a support structure, between the production and packaging line conveyor belts.
 
-file:///home/ameya/Downloads/WhatsApp%20Image%202021-10-06%20at%203.33.33%20PM.jpeg![image](https://user-images.githubusercontent.com/78075049/136273174-47078bd6-1c5b-4015-a89e-4d8d41cec669.png)
+https://user-images.githubusercontent.com/78075049/136273174-47078bd6-1c5b-4015-a89e-4d8d41cec669.png)
 
 ## Standard install via command-line
 ```

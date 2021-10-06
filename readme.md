@@ -39,7 +39,7 @@ Sprint 2 : Driver- Rahul Karanam ; Navigator- Ameya Konkar
 
 ## Standard install via command-line
 ```
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
+git clone --recursive https://github.com/ameyakonk/ENPM808X_Midterm_RRTStar.git
 cd <path to repository>
 mkdir build
 cd build

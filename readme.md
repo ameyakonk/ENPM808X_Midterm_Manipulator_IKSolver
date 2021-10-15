@@ -1,4 +1,4 @@
-# ENPM808X_Midterm_RRTStar
+# ENPM808X_Midterm_Manipulator_IK_Solver
 [![Build Status](https://app.travis-ci.com/ameyakonk/ENPM808X_Midterm_RRTStar.svg?branch=master)](https://app.travis-ci.com/ameyakonk/ENPM808X_Midterm_RRTStar)
 [![Coverage Status](https://coveralls.io/repos/github/ameyakonk/ENPM808X_Midterm_RRTStar/badge.svg?branch=master)](https://coveralls.io/github/ameyakonk/ENPM808X_Midterm_RRTStar?branch=master)
 ---

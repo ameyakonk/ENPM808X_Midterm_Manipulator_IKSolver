@@ -32,3 +32,8 @@ std::vector<double> get_output_coordinates()
 {
 	return output_joint_coordinates;
 }
+
+std::vector<double> get_output_angles()
+{
+	return output_joint_angles;
+}

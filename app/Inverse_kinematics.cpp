@@ -1,10 +1,28 @@
 #include "Inverse_kinematics.hpp"
 #include <cstdlib>
 #include <cmath>
-#include "Eigen/Core"
+//#include "Eigen/Core"
 
 using std::cout;
 using std::endl;
+
+std::vector<double> Inverse_Kinematics::solve_IK(std::vector<double> input_joint_coordinates, std::vector<double> input_joint_angles) {
+
+  double* theta = (double *)malloc(sizeof(double)*7);
+        
+  std::vector <double>::size_type i=1;
+  
+  double r = pow(pow(input_joint_coordinates[i-1],2) + pow(input_joint_coordinates[i],2), 0.5);
+  
+  theta[1] = atan(input_joint_coordinates[i]/input_joint_coordinates[i-1]) - atan(dh_d[i]/pow(pow(r, 2) - pow(dh_d[i],2) , 0.5));
+
+  theta[2] = atan(((cos(theta[1])*input_joint_coordinates[i-1]) - (sin(theta[1])*input_joint_coordinates[i]))/input_joint_coordinates[i+1]);
+  
+  double d3 = (input_joint_coordinates[i-1]*cos(theta[1]) + sin(theta[1])*input_joint_coordinates[i])*sin(theta[2]) + input_joint_coordinates[i+1]*cos(theta[2]);
+
+  theta[4] = atan((-sin(theta[1]),1));
+  return input_joint_coordinates;
+}
 
 void Inverse_Kinematics::set_input_coordinates(std::vector<double> _input_joint_coordinates) {
   input_joint_coordinates = _input_joint_coordinates;

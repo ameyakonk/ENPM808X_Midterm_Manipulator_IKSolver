@@ -17,3 +17,7 @@ std::vector<double> Inverse_Kinematics::get_input_coordinates() {
 void Inverse_Kinematics::set_input_angles(std::vector<double> _input_joint_angles) {
   input_joint_angles = _input_joint_angles;
 }
+
+std::vector<double> Inverse_Kinematics::get_input_angles() {
+ return input_joint_angles;
+}

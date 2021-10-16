@@ -6,6 +6,7 @@
 using std::cout;
 using std::endl;
 
-std::vector<double> Inverse_Kinematics:: solve_FK(std::vector<double> output_joint_coordinates) {
- return output_joint_coordinates;
+void Inverse_Kinematics::set_input_coordinates(std::vector<double> _input_joint_coordinates) {
+  input_joint_coordinates = _input_joint_coordinates;
 }
+

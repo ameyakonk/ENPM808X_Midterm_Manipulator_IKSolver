@@ -1,12 +1,45 @@
 #include "Inverse_kinematics.hpp"
 #include <cstdlib>
 #include <cmath>
-//#include "Eigen/Core"
+#include "Eigen/Core"
 
 using std::cout;
 using std::endl;
 
-std::vector<double> Inverse_Kinematics::solve_IK(std::vector<double> input_joint_coordinates, std::vector<double> input_joint_angles) {
+using namespace Eigen;
+
+void Inverse_Kinematics::convert_input_angles_to_rotation_matrix(std::vector<double> input_joint_angles) {
+
+  std::vector <double>::size_type i=1;
+  Matrix <double, 3, 3> ROLL;
+  ROLL <<   1.0f, 0.0f, 0.0f,
+            0.0f, cos(input_joint_angles[i-1]), (-sin(input_joint_angles[i-1])),
+            0.0f, sin(input_joint_angles[i-1]), cos(input_joint_angles[i-1]);
+
+  Matrix <double, 3, 3> PITCH;
+  PITCH <<   cos(input_joint_angles[i]),    0.0f, sin(input_joint_angles[i]),
+             0.0f,                            1.0f,              0.0f,
+             (-sin(input_joint_angles[i])), 0.0f, cos(input_joint_angles[i]);
+
+  Matrix <double, 3, 3> YAW;
+  YAW <<   cos(input_joint_angles[i+1]), (-sin(input_joint_angles[i+1])), 0.0f,
+           sin(input_joint_angles[i+1]), cos(input_joint_angles[i+1]),    0.0f,
+           0.0f,                          0.0f,                           1.0f;
+
+  Matrix <double, 3, 3> ROTATION_MATRIX;
+  ROTATION_MATRIX = YAW*PITCH*ROLL;
+
+  std::vector<double> rotation_matrix;
+  for(int r=0 ; r < 9; r++) rotation_matrix.push_back(ROTATION_MATRIX(r)); 
+  set_input_angles(rotation_matrix);
+  
+  set_input_coordinates({20, 20, 20});
+  set_dh_d({5, 10});
+  solve_IK(get_input_coordinates(), get_input_angles());
+}
+
+
+void Inverse_Kinematics::solve_IK(std::vector<double> input_joint_coordinates, std::vector<double> input_joint_angles) {
 
   double* theta = (double *)malloc(sizeof(double)*7);
         
@@ -20,8 +53,22 @@ std::vector<double> Inverse_Kinematics::solve_IK(std::vector<double> input_joint
   
   double d3 = (input_joint_coordinates[i-1]*cos(theta[1]) + sin(theta[1])*input_joint_coordinates[i])*sin(theta[2]) + input_joint_coordinates[i+1]*cos(theta[2]);
 
-  theta[4] = atan((-sin(theta[1]),1));
-  return input_joint_coordinates;
+  theta[4] = atan(((-sin(theta[1]))*input_joint_angles[i+5] + cos(theta[1])*input_joint_angles[i+6])/
+            (cos(theta[2])*(cos(theta[1])*input_joint_angles[i+5] + sin(theta[1])*input_joint_angles[i+6])- sin(theta[2])*input_joint_angles[i+6]));
+
+  double I = cos(theta[1])*input_joint_angles[i+3] + sin(theta[1])*input_joint_angles[i+4];
+
+  double n = (-sin(theta[1]))*input_joint_angles[i+2] + cos(theta[1])*input_joint_angles[i+3]; 
+
+  theta[5] = atan((cos(theta[4])*(cos(theta[2])*(cos(theta[1])*input_joint_angles[i+5] + sin(theta[1])*input_joint_angles[i+5]) - sin(theta[2])*input_joint_angles[i+7]) + sin(theta[4])*(cos(theta[1])*input_joint_angles[i+6] - sin(theta[1])*input_joint_angles[i+5]))/
+                  (sin(theta[2])*(cos(theta[1])*input_joint_angles[i+5] + sin(theta[1])*input_joint_angles[i+6])+ cos(theta[2])*input_joint_angles[i+7]));
+
+  theta[6] = atan(((-cos(theta[5]))*(cos(theta[4])*(cos(theta[2])*I - sin(theta[2])*input_joint_angles[i+4]) + sin(theta[4])*n) + sin(theta[5])*(sin(theta[2])*I + cos(theta[2])*input_joint_angles[i+4]))/
+                      (-sin(theta[4])*(cos(theta[2])*I - sin(theta[2])*input_joint_angles[i+4])+ cos(theta[4])*n));
+
+  std::vector<double> output_joint_angles; 
+  for(std::vector <double>::size_type r = 1; r < 7 ; r++) { cout << theta[r] << endl ;output_joint_angles.push_back(theta[r]); };
+  set_output_angles(output_joint_angles); 
 }
 
 void Inverse_Kinematics::set_input_coordinates(std::vector<double> _input_joint_coordinates) {

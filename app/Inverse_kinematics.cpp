@@ -57,3 +57,7 @@ std::vector<double> Inverse_Kinematics::get_dh_a() {
 void Inverse_Kinematics::set_dh_d(std::vector<double> _dh_d) {
    dh_d = _dh_d;
 }
+
+std::vector<double> Inverse_Kinematics::get_dh_d() {
+ return dh_d;
+}

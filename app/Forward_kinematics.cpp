@@ -18,17 +18,17 @@ void Forward_Kinematics::solve_FK(std::vector<double> _input_joint_angles)
 
 	for(int r=0;r<6;r++){
 		trans_mat << cos(_input_joint_angles[i]), (-cos(I.get_dh_alpha()[i])*sin(_input_joint_angles[i]), sin(I.get_dh_alpha()[i])*sin(_input_joint_angles[i]), I.get_dh_a()[i]*cos(_input_joint_angles[i]),
-					     sin(_input_joint_angles[i]), cos(I.get_dh_alpha()[i])*cos(_input_joint_angles[i]),(-sin(alpha)*cos(_input_joint_angles[i]), I.get_dh_a()[i]*sin(_input_joint_angles[i])),
-						 0 , sin(I.get_dh_alpha()[i]) , cos(I.get_dh_alpha()[i]) , get_dh_d()[i],
+					     sin(_input_joint_angles[i]), cos(I.get_dh_alpha()[i])*cos(_input_joint_angles[i]),(-sin(I.get_dh_alpha()[i)*cos(_input_joint_angles[i]), I.get_dh_a()[i]*sin(_input_joint_angles[i])),
+						 0 , sin(I.get_dh_alpha()[i]) , cos(I.get_dh_alpha()[i]) , I.get_dh_d()[i],
 						 0 , 0 , 0 ,1;
 		final_transformation_matrix *= trans_mat;
 		i++;
 	}
 	
 	std::vector<double> end_effector_coordinates;
-	end_effector_coordinates.pushback(final_transformation_matrix(1,4));
-	end_effector_coordinates.pushback(final_transformation_matrix(2,4));
-	end_effector_coordinates.pushback(final_transformation_matrix(3,4));
+	end_effector_coordinates.push_back(final_transformation_matrix(1,4));
+	end_effector_coordinates.push_back(final_transformation_matrix(2,4));
+	end_effector_coordinates.push_back(final_transformation_matrix(3,4));
 
 	set_output_coordinates(end_effector_coordinates);
 }

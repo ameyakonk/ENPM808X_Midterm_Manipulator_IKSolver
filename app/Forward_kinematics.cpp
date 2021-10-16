@@ -42,3 +42,8 @@ std::vector<double> get_current_pose()
 {
 	return current_robot_pose;
 }
+
+std::vector<double> get_intput_angles()
+{
+	return input_joint_angles;
+}

@@ -37,3 +37,8 @@ std::vector<double> get_output_angles()
 {
 	return output_joint_angles;
 }
+
+std::vector<double> get_current_pose()
+{
+	return current_robot_pose;
+}

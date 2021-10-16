@@ -6,27 +6,25 @@
 using std::cout;
 using std::endl;
 
-using namespace Eigen;
-
 void Inverse_Kinematics::convert_input_angles_to_rotation_matrix(std::vector<double> input_joint_angles) {
 
   std::vector <double>::size_type i=1;
-  Matrix <double, 3, 3> ROLL;
+  Eigen::Matrix <double, 3, 3> ROLL;
   ROLL <<   1.0f, 0.0f, 0.0f,
             0.0f, cos(input_joint_angles[i-1]), (-sin(input_joint_angles[i-1])),
             0.0f, sin(input_joint_angles[i-1]), cos(input_joint_angles[i-1]);
 
-  Matrix <double, 3, 3> PITCH;
+  Eigen::Matrix <double, 3, 3> PITCH;
   PITCH <<   cos(input_joint_angles[i]),    0.0f, sin(input_joint_angles[i]),
              0.0f,                            1.0f,              0.0f,
              (-sin(input_joint_angles[i])), 0.0f, cos(input_joint_angles[i]);
 
-  Matrix <double, 3, 3> YAW;
+  Eigen::Matrix <double, 3, 3> YAW;
   YAW <<   cos(input_joint_angles[i+1]), (-sin(input_joint_angles[i+1])), 0.0f,
            sin(input_joint_angles[i+1]), cos(input_joint_angles[i+1]),    0.0f,
            0.0f,                          0.0f,                           1.0f;
 
-  Matrix <double, 3, 3> ROTATION_MATRIX;
+  Eigen::Matrix <double, 3, 3> ROTATION_MATRIX;
   ROTATION_MATRIX = YAW*PITCH*ROLL;
 
   std::vector<double> rotation_matrix;

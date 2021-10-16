@@ -14,6 +14,7 @@ class Forward_Kinematics {
 		std::vector <double> current_robot_pose;
    public:
    	void solve_FK(std::vector<double>);
+   	std::vector<double> create_transformation_matrix();
 		void set_output_coordinates(std::vector<double>);
 		void set_output_angles(std::vector<double>);
 		void set_input_angles(std::vector<double>);

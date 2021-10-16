@@ -13,6 +13,11 @@ void Forward_Kinematics::solve_FK(std::vector<double> _input_joint_angles)
 	
 }
 
+std::vector<double> Forward_Kinematics::create_transformation_matrix()
+{
+
+}
+
 void Forward_Kinematics::set_output_coordinates(std::vector<double> _output_joint_coordinates)
 {
 	output_joint_coordinates = _output_joint_coordinates;

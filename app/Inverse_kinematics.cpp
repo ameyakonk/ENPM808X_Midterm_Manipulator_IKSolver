@@ -69,3 +69,7 @@ void Inverse_Kinematics::set_dh_alpha(std::vector<double> _dh_alpha) {
 std::vector<double> Inverse_Kinematics::get_dh_alpha() {
  return dh_alpha;
 }
+
+void Inverse_Kinematics::reset_pose() {
+
+}

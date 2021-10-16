@@ -65,3 +65,7 @@ std::vector<double> Inverse_Kinematics::get_dh_d() {
 void Inverse_Kinematics::set_dh_alpha(std::vector<double> _dh_alpha) {
    dh_alpha = _dh_alpha;
 }
+
+std::vector<double> Inverse_Kinematics::get_dh_alpha() {
+ return dh_alpha;
+}

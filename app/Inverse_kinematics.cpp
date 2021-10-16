@@ -25,3 +25,7 @@ std::vector<double> Inverse_Kinematics::get_input_angles() {
 void Inverse_Kinematics::set_output_angles(std::vector<double> _output_joint_angles) {
   output_joint_angles = _output_joint_angles;
 }
+
+std::vector<double> Inverse_Kinematics::get_output_angles() {
+ return output_joint_angles;
+}

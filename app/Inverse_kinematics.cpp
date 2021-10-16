@@ -33,3 +33,7 @@ std::vector<double> Inverse_Kinematics::get_output_angles() {
 void Inverse_Kinematics::set_output_coordinates(std::vector<double> _output_joint_coordinates) {
   output_joint_coordinates = _output_joint_coordinates;
 }
+
+std::vector<double> Inverse_Kinematics::get_output_coordinates() {
+ return output_joint_coordinates;
+}

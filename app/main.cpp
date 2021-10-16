@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Eigen/Core>
 #include "Inverse_kinematics.hpp"
+#include "Forward_kinematics.hpp"
 #define PI 3.14
 using namespace Eigen;
 using std::cout;

@@ -1,5 +1,5 @@
-#ifndef KINEMATICS_H
-#define KINEMATICS_H
+#ifndef INVERSE_KINEMATICS_H
+#define INVERSE_KINEMATICS_H
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cmath>

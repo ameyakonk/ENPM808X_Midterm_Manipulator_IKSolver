@@ -27,3 +27,8 @@ void set_current_pose(std::vector<double> current_robot_pose)
 {
 	current_robot_pose = _current_robot_pose;
 }
+
+std::vector<double> get_output_coordinates()
+{
+	return output_joint_coordinates;
+}

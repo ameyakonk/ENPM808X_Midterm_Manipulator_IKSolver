@@ -29,3 +29,7 @@ void Inverse_Kinematics::set_output_angles(std::vector<double> _output_joint_ang
 std::vector<double> Inverse_Kinematics::get_output_angles() {
  return output_joint_angles;
 }
+
+void Inverse_Kinematics::set_output_coordinates(std::vector<double> _output_joint_coordinates) {
+  output_joint_coordinates = _output_joint_coordinates;
+}

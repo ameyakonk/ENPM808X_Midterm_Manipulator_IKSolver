@@ -22,3 +22,8 @@ void set_input_angles(std::vector<double> _input_joint_angles)
 {
 	input_joint_angles = _input_joint_angles; 
 }
+
+void set_current_pose(std::vector<double> current_robot_pose)
+{
+	current_robot_pose = _current_robot_pose;
+}

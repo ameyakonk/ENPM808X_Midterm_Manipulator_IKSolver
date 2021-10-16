@@ -49,3 +49,7 @@ std::vector<double> Inverse_Kinematics::get_current_pose() {
 void Inverse_Kinematics::set_dh_a(std::vector<double> _dh_a) {
    dh_a = _dh_a;
 }
+
+std::vector<double> Inverse_Kinematics::get_dh_a() {
+ return dh_a;
+}

@@ -45,5 +45,5 @@ std::vector<double> get_current_pose()
 
 std::vector<double> get_intput_angles()
 {
-	return input_joint_angles;
+   return input_joint_angles;
 }

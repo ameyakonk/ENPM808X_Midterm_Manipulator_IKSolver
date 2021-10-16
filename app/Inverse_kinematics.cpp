@@ -41,3 +41,7 @@ std::vector<double> Inverse_Kinematics::get_output_coordinates() {
 void Inverse_Kinematics::set_current_pose(std::vector<double> _current_robot_pose) {
   current_robot_pose = _current_robot_pose;
 }
+
+std::vector<double> Inverse_Kinematics::get_current_pose() {
+ return current_robot_pose;
+}

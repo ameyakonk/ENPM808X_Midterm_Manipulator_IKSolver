@@ -32,3 +32,13 @@ TEST(get_current_pose_FK, should_return_set_values) {
   for (i = 0; i < 6; i++)
     ASSERT_EQ(_current_pose[i], F.get_current_pose()[i]);
 }
+TEST(get_input_angles_FK, should_return_set_values) {
+
+  Forward_Kinematics F;
+  std::vector<double>::size_type i = 0;
+  F.set_input_angles( { PI / 2, PI / 4, PI / 6 });
+  std::vector<double> _input_angles( { PI / 2, PI / 4, PI / 6 });
+  for (i = 0; i < 2; i++)
+    ASSERT_EQ(_input_angles[i], F.get_input_angles()[i]);
+}
+

@@ -5,7 +5,9 @@ add_executable(
     main.cpp
     test.cpp
     IK_test.cpp
+    FK_test.cpp
     ../app/Inverse_kinematics.cpp
+    ../app/Forward_kinematics.cpp
 )
 include_directories(
     ${CMAKE_SOURCE_DIR}/include

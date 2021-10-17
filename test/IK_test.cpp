@@ -47,3 +47,12 @@ TEST(get_dh_a_IK, should_return_set_values) {
   std::vector <double> _dh_a({PI/2, PI/4, PI/6, PI/2, PI/4, PI/6});
   for(i=0 ; i<6; i++)ASSERT_EQ(_dh_a[i], I.get_dh_a()[i]);
 }
+
+TEST(get_dh_d_IK, should_return_set_values) {
+  
+  Inverse_Kinematics I;
+  std::vector <double>::size_type i=0;
+  I.set_dh_d({0, 5, 10, 0, 0, 0});
+  std::vector <double> _dh_d({0, 5, 10, 0, 0, 0});
+  for(i=0 ; i<6; i++)ASSERT_EQ(_dh_d[i], I.get_dh_d()[i]);
+}

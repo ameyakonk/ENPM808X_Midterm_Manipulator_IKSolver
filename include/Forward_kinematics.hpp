@@ -22,7 +22,7 @@ class Forward_Kinematics {
 		std::vector<double> get_output_coordinates();
 		std::vector<double> get_output_angles();
 		std::vector<double> get_current_pose();
-		std::vector<double> get_intput_angles();
+		std::vector<double> get_input_angles();
 };
 
 #endif

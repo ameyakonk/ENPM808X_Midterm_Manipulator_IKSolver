@@ -30,9 +30,10 @@ void Inverse_Kinematics::convert_input_angles_to_rotation_matrix(std::vector<dou
   std::vector<double> rotation_matrix;
   for(int r=0 ; r < 9; r++) rotation_matrix.push_back(ROTATION_MATRIX(r)); 
   set_input_angles(rotation_matrix);
-  
   set_input_coordinates({20, 20, 20});
-  set_dh_d({5, 10});
+  set_dh_d({0, 5, 10, 0, 0, 0});
+  set_dh_a({0, 0, 0, 0, 0, 0});
+  set_dh_alpha({-PI/2, PI/2, 0, (-PI/2), PI/2, 0});
   solve_IK(get_input_coordinates(), get_input_angles());
 }
 
@@ -64,8 +65,11 @@ void Inverse_Kinematics::solve_IK(std::vector<double> input_joint_coordinates, s
   theta[6] = atan(((-cos(theta[5]))*(cos(theta[4])*(cos(theta[2])*I - sin(theta[2])*input_joint_angles[i+4]) + sin(theta[4])*n) + sin(theta[5])*(sin(theta[2])*I + cos(theta[2])*input_joint_angles[i+4]))/
                       (-sin(theta[4])*(cos(theta[2])*I - sin(theta[2])*input_joint_angles[i+4])+ cos(theta[4])*n));
 
-  std::vector<double> output_joint_angles; 
-  for(std::vector <double>::size_type r = 1; r < 7 ; r++) { cout << theta[r] << endl ;output_joint_angles.push_back(theta[r]); };
+  std::vector<double> output_joint_angles;
+  std::vector<double> _dh_d {0, 5, d3, 0, 0, 0};
+  set_dh_d(_dh_d);
+  for(int i=1; i<7; i++)output_joint_angles.push_back(theta[i]);
+  free(theta);
   set_output_angles(output_joint_angles); 
 }
 

@@ -6,7 +6,7 @@
 using std::cout;
 using std::endl;
 
-void Inverse_Kinematics::convert_input_angles_to_rotation_matrix(std::vector<double> input_joint_angles) {
+std::vector<double> Inverse_Kinematics::convert_input_angles_to_rotation_matrix(std::vector<double> input_joint_angles) {
 
   std::vector <double>::size_type i=1;
   Eigen::Matrix <double, 3, 3> ROLL;
@@ -35,6 +35,7 @@ void Inverse_Kinematics::convert_input_angles_to_rotation_matrix(std::vector<dou
   set_dh_a({0, 0, 0, 0, 0, 0});
   set_dh_alpha({-PI/2, PI/2, 0, (-PI/2), PI/2, 0});
   solve_IK(get_input_coordinates(), get_input_angles());
+  return rotation_matrix;
 }
 
 

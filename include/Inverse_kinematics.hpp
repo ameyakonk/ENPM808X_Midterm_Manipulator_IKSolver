@@ -39,6 +39,6 @@ class Inverse_Kinematics {
       std::vector<double> get_dh_d();
 	   std::vector<double> get_dh_alpha();
 	   void reset_pose();
-	   void convert_input_angles_to_rotation_matrix(std::vector<double>);
+	   std::vector<double> convert_input_angles_to_rotation_matrix(std::vector<double>);
 };
 #endif

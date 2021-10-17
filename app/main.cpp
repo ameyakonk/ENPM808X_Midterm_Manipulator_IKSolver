@@ -14,5 +14,6 @@ int main()
 	I.convert_input_angles_to_rotation_matrix(temp_input_joint_angles);
 	//F.solve_FK(I.get_output_angles());
 	std::vector <double>::size_type i=0;
+	for(i=0; i<6; i++){ cout << I.get_output_angles()[i] << endl; }
 
 }

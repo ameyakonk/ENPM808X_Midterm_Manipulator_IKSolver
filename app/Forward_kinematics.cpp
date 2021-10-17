@@ -11,7 +11,7 @@ using namespace Eigen;
 
 void Forward_Kinematics::solve_FK(std::vector<double> _input_joint_angles)
 {
-	Inverse_Kinematics I;
+    Inverse_Kinematics I;
 	 std::vector <double>::size_type i=0;
 		
 	Eigen::Matrix <double,4,4 > trans_mat;

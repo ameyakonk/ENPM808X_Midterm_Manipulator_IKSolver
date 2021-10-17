@@ -46,30 +46,34 @@ void Inverse_Kinematics::solve_IK(std::vector<double> input_joint_coordinates, s
   
   double r = pow(pow(input_joint_coordinates[i-1],2) + pow(input_joint_coordinates[i],2), 0.5);
   
-  theta[1] = atan(input_joint_coordinates[i]/input_joint_coordinates[i-1]) - atan(dh_d[i]/pow(pow(r, 2) - pow(dh_d[i],2) , 0.5));
+  theta[0] = atan(input_joint_coordinates[i]/input_joint_coordinates[i-1]) - atan(dh_d[i]/pow(pow(r, 2) - pow(dh_d[i],2) , 0.5));
 
-  theta[2] = atan(((cos(theta[1])*input_joint_coordinates[i-1]) - (sin(theta[1])*input_joint_coordinates[i]))/input_joint_coordinates[i+1]);
+  theta[1] = atan(((cos(theta[0])*input_joint_coordinates[i-1]) - (sin(theta[0])*input_joint_coordinates[i]))/input_joint_coordinates[i+1]);
   
-  double d3 = (input_joint_coordinates[i-1]*cos(theta[1]) + sin(theta[1])*input_joint_coordinates[i])*sin(theta[2]) + input_joint_coordinates[i+1]*cos(theta[2]);
+  double d3 = (input_joint_coordinates[i-1]*cos(theta[0]) + sin(theta[0])*input_joint_coordinates[i])*sin(theta[1]) + input_joint_coordinates[i+1]*cos(theta[1]);
 
-  theta[4] = atan(((-sin(theta[1]))*input_joint_angles[i+5] + cos(theta[1])*input_joint_angles[i+6])/
-            (cos(theta[2])*(cos(theta[1])*input_joint_angles[i+5] + sin(theta[1])*input_joint_angles[i+6])- sin(theta[2])*input_joint_angles[i+6]));
+  theta[3] = atan(((-sin(theta[0]))*input_joint_angles[i+5] + cos(theta[0])*input_joint_angles[i+6])/
+            (cos(theta[1])*(cos(theta[0])*input_joint_angles[i+5] + sin(theta[0])*input_joint_angles[i+6])- sin(theta[1])*input_joint_angles[i+6]));
 
-  double I = cos(theta[1])*input_joint_angles[i+3] + sin(theta[1])*input_joint_angles[i+4];
+  double I = cos(theta[0])*input_joint_angles[i+3] + sin(theta[0])*input_joint_angles[i+4];
 
-  double n = (-sin(theta[1]))*input_joint_angles[i+2] + cos(theta[1])*input_joint_angles[i+3]; 
+  double n = (-sin(theta[0]))*input_joint_angles[i+2] + cos(theta[0])*input_joint_angles[i+3]; 
 
-  theta[5] = atan((cos(theta[4])*(cos(theta[2])*(cos(theta[1])*input_joint_angles[i+5] + sin(theta[1])*input_joint_angles[i+5]) - sin(theta[2])*input_joint_angles[i+7]) + sin(theta[4])*(cos(theta[1])*input_joint_angles[i+6] - sin(theta[1])*input_joint_angles[i+5]))/
-                  (sin(theta[2])*(cos(theta[1])*input_joint_angles[i+5] + sin(theta[1])*input_joint_angles[i+6])+ cos(theta[2])*input_joint_angles[i+7]));
+  theta[4] = atan((cos(theta[3])*(cos(theta[1])*(cos(theta[0])*input_joint_angles[i+5] + sin(theta[0])*input_joint_angles[i+5]) - sin(theta[1])*input_joint_angles[i+7]) + sin(theta[3])*(cos(theta[0])*input_joint_angles[i+6] - sin(theta[0])*input_joint_angles[i+5]))/
+                  (sin(theta[1])*(cos(theta[0])*input_joint_angles[i+5] + sin(theta[0])*input_joint_angles[i+6])+ cos(theta[1])*input_joint_angles[i+7]));
 
-  theta[6] = atan(((-cos(theta[5]))*(cos(theta[4])*(cos(theta[2])*I - sin(theta[2])*input_joint_angles[i+4]) + sin(theta[4])*n) + sin(theta[5])*(sin(theta[2])*I + cos(theta[2])*input_joint_angles[i+4]))/
-                      (-sin(theta[4])*(cos(theta[2])*I - sin(theta[2])*input_joint_angles[i+4])+ cos(theta[4])*n));
+  theta[5] = atan(((-cos(theta[4]))*(cos(theta[3])*(cos(theta[1])*I - sin(theta[1])*input_joint_angles[i+4]) + sin(theta[3])*n) + sin(theta[4])*(sin(theta[1])*I + cos(theta[1])*input_joint_angles[i+4]))/
+                      (-sin(theta[3])*(cos(theta[1])*I - sin(theta[1])*input_joint_angles[i+4])+ cos(theta[3])*n));
 
   std::vector<double> output_joint_angles;
   std::vector<double> _dh_d {0, 5, d3, 0, 0, 0};
+  
   set_dh_d(_dh_d);
-  for(int i=1; i<7; i++)output_joint_angles.push_back(theta[i]);
+
+  for(int i=0; i<6; i++)output_joint_angles.push_back(theta[i]);
+  
   free(theta);
+  
   set_output_angles(output_joint_angles); 
 }
 

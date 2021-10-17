@@ -29,3 +29,12 @@ TEST(get_output_angles_IK, should_return_set_values) {
   std::vector <double> _output_angles({PI/2, PI/4, PI/6, PI/2, PI/4, PI/6});
   for(i=0 ; i<6; i++)ASSERT_EQ(_output_angles[i], I.get_output_angles()[i]);
 }
+
+TEST(get_current_pose_IK, should_return_set_values) {
+  
+  Inverse_Kinematics I;
+  std::vector <double>::size_type i=0;
+  I.set_current_pose({PI/2, PI/4, PI/6, PI/2, PI/4, PI/6});
+  std::vector <double> _current_pose({PI/2, PI/4, PI/6, PI/2, PI/4, PI/6});
+  for(i=0 ; i<6; i++)ASSERT_EQ(_current_pose[i], I.get_current_pose()[i]);
+}

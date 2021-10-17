@@ -11,3 +11,13 @@ TEST(get_output_coordinates_FK, should_return_set_values) {
   for (i = 0; i < 3; i++)
     ASSERT_EQ(_output_coordinates[i], F.get_output_coordinates()[i]);
 }
+
+TEST(get_output_angles_FK, should_return_set_values) {
+
+  Forward_Kinematics F;
+  std::vector<double>::size_type i = 0;
+  F.set_output_angles( { PI / 2, PI / 4, PI / 6 });
+  std::vector<double> _output_angles( { PI / 2, PI / 4, PI / 6 });
+  for (i = 0; i < 2; i++)
+    ASSERT_EQ(_output_angles[i], F.get_output_angles()[i]);
+}

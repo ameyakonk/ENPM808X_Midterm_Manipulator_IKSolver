@@ -11,12 +11,16 @@ using namespace Eigen;
 
 void Forward_Kinematics::solve_FK(std::vector<double> _input_joint_angles)
 {
-    Inverse_Kinematics I;
-	 std::vector <double>::size_type i=0;
-		
-	Eigen::Matrix <double,4,4 > trans_mat;
-	Eigen::Matrix <double,4,4 > final_transformation_matrix;
+	 Inverse_Kinematics I;
+	 I.set_dh_d({0, 5, 10, 0, 0, 0});
+  	 I.set_dh_a({0, 0, 0, 0, 0, 0});
+  	 I.set_dh_alpha({-PI/2, PI/2, 0, (-PI/2), PI/2, 0});
+	 Matrix <double,4,4 > trans_mat;
+	 Matrix <double,4,4 > final_transformation_matrix;
 
+	  std::vector <double>::size_type i=0;
+	 for(i=0; i<6; i++){ cout << I.get_dh_d()[i] << endl; }
+	 
 	 for(int r=0;r<6;r++){
 	 	trans_mat << cos(_input_joint_angles[i]), (-cos(I.get_dh_alpha()[i]))*sin(_input_joint_angles[i]), sin(I.get_dh_alpha()[i])*sin(_input_joint_angles[i]), I.get_dh_a()[i]*cos(_input_joint_angles[i]),
 					     sin(_input_joint_angles[i]), cos(I.get_dh_alpha()[i])*cos(_input_joint_angles[i]),(-sin(I.get_dh_alpha()[i])*cos(_input_joint_angles[i]), I.get_dh_a()[i]*sin(_input_joint_angles[i])),
@@ -72,4 +76,3 @@ std::vector<double> Forward_Kinematics::get_input_angles()
 {
    return input_joint_angles;
 }
-

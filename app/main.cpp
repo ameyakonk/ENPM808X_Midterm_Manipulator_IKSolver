@@ -13,7 +13,7 @@ int main()
 	std::vector<double> temp_input_joint_angles {PI/2, PI/4, PI/4};
 	I.convert_input_angles_to_rotation_matrix(temp_input_joint_angles);
 	//F.solve_FK(I.get_output_angles());
-	std::vector <double>::size_type i=0;
-	for(i=0; i<6; i++){ cout << I.get_output_angles()[i] << endl; }
+	 std::vector <double>::size_type i=0;
+	 for(i=0; i<6; i++){ cout << I.get_output_angles()[i] << endl; }
 
 }

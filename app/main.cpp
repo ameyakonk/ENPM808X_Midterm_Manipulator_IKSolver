@@ -36,7 +36,7 @@
  *
  */
 
-#Header Files
+//Header Files
 #include <iostream>
 #include <Eigen/Core>
 #include "Inverse_kinematics.hpp"
@@ -54,7 +54,9 @@ using std::endl;
  * @return 0;
  */
 int main() {
+  // Instantiating Inverse_kinematics class
   Inverse_Kinematics I;
+  // Instantiating Forward kinematics class
   Forward_Kinematics F;
   std::vector<double> temp_input_joint_angles { PI / 2, PI / 4, PI / 4 };
   I.convert_input_angles_to_rotation_matrix(temp_input_joint_angles);

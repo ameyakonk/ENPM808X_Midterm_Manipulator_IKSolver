@@ -35,8 +35,8 @@
  */
 
 // Header Files
-#ifndef MANIPULATOR_H
-#define MANIPULATOR_H
+#ifndef INCLUDE_MANIPULATOR_HPP_
+#define INCLUDE_MANIPULATOR_HPP_
 #include<bits/stdc++.h>
 #include<iostream>
 
@@ -51,5 +51,5 @@ class Manipulator {
   // Instantiating the forward kinematics class
   Forward_Kinematics F;
 };
-#endif
+#endif  // INCLUDE_MANIPULATOR_HPP_
 

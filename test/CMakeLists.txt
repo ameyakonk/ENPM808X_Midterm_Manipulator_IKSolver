@@ -3,7 +3,6 @@ set(GTEST_SHUFFLE 1)
 add_executable(
     cpp-test
     main.cpp
-    test.cpp
     IK_test.cpp
     FK_test.cpp
     ../app/Inverse_kinematics.cpp

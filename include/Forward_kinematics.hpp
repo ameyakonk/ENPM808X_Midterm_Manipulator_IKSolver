@@ -35,11 +35,12 @@
  */
 
 // Header Files
-#ifndef FORWARD_KINEMATICS_H
-#define FORWARD_KINEMATICS_H
+#ifndef INCLUDE_FORWARD_KINEMATICS_HPP_
+#define INCLUDE_FORWARD_KINEMATICS_HPP_
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cmath>
+#include <vector>
 #include "Eigen/Core"
 #define PI 3.14
 
@@ -53,9 +54,11 @@
 class Forward_Kinematics {
  private:
   std::vector<double> input_joint_angles;  // robot manipulator joint angles
-  std::vector<double> output_joint_coordinates;  // output joint coordinates of all the joint
-  std::vector<double> output_joint_angles;  // output joint angles  of the arm
+  // output joint coordinates of all the joint
+  std::vector<double> output_joint_coordinates;
+  std::vector<double> output_joint_angles;  // output joint angles of the arm
   std::vector<double> current_robot_pose;  // the current robot pose
+
  public:
   /**
    * @fn void solve_FK(std::vector<double>)
@@ -127,4 +130,4 @@ class Forward_Kinematics {
    */
   std::vector<double> get_input_angles();
 };
-#endif
+#endif  // INCLUDE_FORWARD_KINEMATICS_HPP_

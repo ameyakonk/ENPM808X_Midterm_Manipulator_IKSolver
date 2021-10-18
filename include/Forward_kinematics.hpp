@@ -68,7 +68,7 @@ class Forward_Kinematics {
    * @param input_joint_angles these are the input joint angles of the robotic manipulator
    */
 
-  void solve_FK(std::vector<double> input_joint_angles);
+  void solve_FK(const std::vector<double> &_input_joint_angles);
   /**
    * @fn void set_output_coordinates(std::vector<double>)
    * @brief It sets the output_coordinates(input) to the output_joint_coordinates
@@ -76,7 +76,8 @@ class Forward_Kinematics {
    * @param _output_joint_coordinates
    * @return None
    */
-  void set_output_coordinates(std::vector<double> _output_joint_coordinates);
+  void set_output_coordinates(
+      const std::vector<double> &_output_joint_coordinates);
   /**
    * @fn void set_output_angles(std::vector<double>)
    * @brief It sets the given input to output_joint_coordinates
@@ -84,7 +85,7 @@ class Forward_Kinematics {
    * @param _output_joint_angles
    * @return None
    */
-  void set_output_angles(std::vector<double> _output_joint_angles);
+  void set_output_angles(const std::vector<double> &_output_joint_angles);
   /**
    * @fn void set_input_angles(std::vector<double>)
    * @brief It sets the given input to input_joint_angles.
@@ -92,7 +93,7 @@ class Forward_Kinematics {
    * @param _input_joint_angles
    * @return None
    */
-  void set_input_angles(std::vector<double> _input_joint_angles);
+  void set_input_angles(const std::vector<double> &_input_joint_angles);
   /**
    * @fn void set_current_pose(std::vector<double>)
    * @brief It sets the given input to current_robot_pose
@@ -100,7 +101,7 @@ class Forward_Kinematics {
    * @param _current_robot_pose
    * @return None
    */
-  void set_current_pose(std::vector<double> _current_robot_pose);
+  void set_current_pose(const std::vector<double> &_current_robot_pose);
   /**
    * @fn std::vector<double> get_output_coordinates()
    * @brief Getter method for returning output_joint_coordinates

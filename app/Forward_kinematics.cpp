@@ -50,16 +50,17 @@
  * @param _input_joint_angles is the Robot Manipulator Joint angles
  * @return None
  */
-void Forward_Kinematics::solve_FK(std::vector<double> _input_joint_angles) {
+void Forward_Kinematics::solve_FK(
+    const std::vector<double> &_input_joint_angles) {
   Inverse_Kinematics I;  // Calling an object from the Inverse Kinematics Class
   // set the dh_d for the given inputs
-  I.set_dh_d({ 0, 5, 10, 0, 0, 0 });
+  I.set_dh_d( { 0, 5, 10, 0, 0, 0 });
   // set the df_a for the given inputs
-  I.set_dh_a({ 0, 0, 0, 0, 0, 0 });
+  I.set_dh_a( { 0, 0, 0, 0, 0, 0 });
   // set the dh_alpha for the given inputs.
-  I.set_dh_alpha({ -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
+  I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
   // Creating a 4 X 4 matrix for the transformation matrix
-  Eigen::Matrix<double, 4, 4> trans_mat;
+  Eigen::MatrixXd trans_mat;
   // Created a 4 X 4 matrix for the final transformation matrix
   Eigen::Matrix<double, 4, 4> final_transformation_matrix;
   // Have issues with accessing dh_d from the IK class.
@@ -68,9 +69,9 @@ void Forward_Kinematics::solve_FK(std::vector<double> _input_joint_angles) {
   //  cout << I.get_dh_d()[i] << endl;
   // }
   // Iterating through each transformation matrix and
-  /* calculating the final_transformation_matrix 
+  /* calculating the final_transformation_matrix
    * by multiplying individual trans_mat */
-
+  trans_mat.resize(4, 4);
   for (int r = 0; r < 6; r++) {
     trans_mat << cos(_input_joint_angles[i]), (-cos(I.get_dh_alpha()[i]))
         * sin(_input_joint_angles[i]), sin(I.get_dh_alpha()[i])
@@ -100,7 +101,7 @@ void Forward_Kinematics::solve_FK(std::vector<double> _input_joint_angles) {
  * @return None
  */
 void Forward_Kinematics::set_output_coordinates(
-    std::vector<double> _output_joint_coordinates) {
+    const std::vector<double> &_output_joint_coordinates) {
   output_joint_coordinates = _output_joint_coordinates;
 }
 /**
@@ -111,7 +112,7 @@ void Forward_Kinematics::set_output_coordinates(
  * @return None
  */
 void Forward_Kinematics::set_output_angles(
-    std::vector<double> _output_joint_angles) {
+    const std::vector<double> &_output_joint_angles) {
   output_joint_angles = _output_joint_angles;
 }
 /**
@@ -122,7 +123,7 @@ void Forward_Kinematics::set_output_angles(
  * @return None
  */
 void Forward_Kinematics::set_input_angles(
-    std::vector<double> _input_joint_angles) {
+    const std::vector<double> &_input_joint_angles) {
   input_joint_angles = _input_joint_angles;
 }
 /**
@@ -133,7 +134,7 @@ void Forward_Kinematics::set_input_angles(
  * @return None
  */
 void Forward_Kinematics::set_current_pose(
-    std::vector<double> _current_robot_pose) {
+    const std::vector<double> &_current_robot_pose) {
   current_robot_pose = _current_robot_pose;
 }
 /**

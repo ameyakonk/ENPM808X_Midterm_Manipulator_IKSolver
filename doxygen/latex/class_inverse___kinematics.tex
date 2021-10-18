@@ -1,0 +1,178 @@
+\hypertarget{class_inverse___kinematics}{}\doxysection{Inverse\+\_\+\+Kinematics Class Reference}
+\label{class_inverse___kinematics}\index{Inverse\_Kinematics@{Inverse\_Kinematics}}
+
+
+The following Class contains all the methods,attributes of Inverse Kinematics Class. It provide methods to solve the inverse kinematics of a robotic manipulator.  
+
+
+
+
+{\ttfamily \#include $<$Inverse\+\_\+kinematics.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_aabdbefea640a62322e1609a06e39b324}{solve\+\_\+\+IK}} (const std\+::vector$<$ double $>$ \&, const std\+::vector$<$ double $>$ \&)
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a3557a3dcbf0d413e53b32365b7e69dc1}{set\+\_\+input\+\_\+coordinates}} (const std\+::vector$<$ double $>$ \&)
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a95199430e89ac6ba896f33a783f84d9d}{set\+\_\+output\+\_\+coordinates}} (const std\+::vector$<$ double $>$ \&)
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a189d9d8296d7cb8625f71bc9b9d6a18f}{set\+\_\+output\+\_\+angles}} (const std\+::vector$<$ double $>$ \&)
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a5dc214482c773eb729474674e8bc51b0}{set\+\_\+input\+\_\+angles}} (const std\+::vector$<$ double $>$ \&)
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a5d4971a6619c9a6ef4cf78ae9b2120d2}{set\+\_\+current\+\_\+pose}} (const std\+::vector$<$ double $>$ \&)
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a7acafa63f206082d839c4032edb5492e}{set\+\_\+dh\+\_\+a}} (const std\+::vector$<$ double $>$ \&)
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a96c722b6043984be21ef06e19681e876}{set\+\_\+dh\+\_\+d}} (const std\+::vector$<$ double $>$ \&)
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a550aecc6a610f2a881f8ee3ebd2543c5}{set\+\_\+dh\+\_\+alpha}} (const std\+::vector$<$ double $>$ \&)
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_a58f22954611dbceeca8a6ddb910b4b71}{get\+\_\+input\+\_\+coordinates}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_a87b193fd98810f7d69649262f5147bba}{get\+\_\+output\+\_\+coordinates}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_a1e2ed541596b44467f368a172a1c9c33}{get\+\_\+input\+\_\+angles}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_ae772bbcf4eae0578518fa53fc612f0cd}{get\+\_\+output\+\_\+angles}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_a15e4483ce26730bd4f2d4ec05ea4f577}{get\+\_\+current\+\_\+pose}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_a429aecb00de495b981df42754077dc85}{get\+\_\+dh\+\_\+a}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_aa82eb6cc61a934c4133d8d12b010875c}{get\+\_\+dh\+\_\+d}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_a3c48f6be9baedfde11edd46d9c4531a9}{get\+\_\+dh\+\_\+alpha}} ()
+\item 
+void \mbox{\hyperlink{class_inverse___kinematics_a0d46eb4417f9f13e0fde22161975fef3}{reset\+\_\+pose}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_inverse___kinematics_aea9a44d4a96e39401c173013f8146a4f}{convert\+\_\+input\+\_\+angles\+\_\+to\+\_\+rotation\+\_\+matrix}} (const std\+::vector$<$ double $>$ \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The following Class contains all the methods,attributes of Inverse Kinematics Class. It provide methods to solve the inverse kinematics of a robotic manipulator. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_inverse___kinematics_aea9a44d4a96e39401c173013f8146a4f}\label{class_inverse___kinematics_aea9a44d4a96e39401c173013f8146a4f}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!convert\_input\_angles\_to\_rotation\_matrix@{convert\_input\_angles\_to\_rotation\_matrix}}
+\index{convert\_input\_angles\_to\_rotation\_matrix@{convert\_input\_angles\_to\_rotation\_matrix}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{convert\_input\_angles\_to\_rotation\_matrix()}{convert\_input\_angles\_to\_rotation\_matrix()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::convert\+\_\+input\+\_\+angles\+\_\+to\+\_\+rotation\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{input\+\_\+joint\+\_\+angles }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a15e4483ce26730bd4f2d4ec05ea4f577}\label{class_inverse___kinematics_a15e4483ce26730bd4f2d4ec05ea4f577}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!get\_current\_pose@{get\_current\_pose}}
+\index{get\_current\_pose@{get\_current\_pose}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{get\_current\_pose()}{get\_current\_pose()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::get\+\_\+current\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a429aecb00de495b981df42754077dc85}\label{class_inverse___kinematics_a429aecb00de495b981df42754077dc85}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!get\_dh\_a@{get\_dh\_a}}
+\index{get\_dh\_a@{get\_dh\_a}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{get\_dh\_a()}{get\_dh\_a()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::get\+\_\+dh\+\_\+a (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a3c48f6be9baedfde11edd46d9c4531a9}\label{class_inverse___kinematics_a3c48f6be9baedfde11edd46d9c4531a9}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!get\_dh\_alpha@{get\_dh\_alpha}}
+\index{get\_dh\_alpha@{get\_dh\_alpha}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{get\_dh\_alpha()}{get\_dh\_alpha()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::get\+\_\+dh\+\_\+alpha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_aa82eb6cc61a934c4133d8d12b010875c}\label{class_inverse___kinematics_aa82eb6cc61a934c4133d8d12b010875c}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!get\_dh\_d@{get\_dh\_d}}
+\index{get\_dh\_d@{get\_dh\_d}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{get\_dh\_d()}{get\_dh\_d()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::get\+\_\+dh\+\_\+d (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a1e2ed541596b44467f368a172a1c9c33}\label{class_inverse___kinematics_a1e2ed541596b44467f368a172a1c9c33}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!get\_input\_angles@{get\_input\_angles}}
+\index{get\_input\_angles@{get\_input\_angles}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{get\_input\_angles()}{get\_input\_angles()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::get\+\_\+input\+\_\+angles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a58f22954611dbceeca8a6ddb910b4b71}\label{class_inverse___kinematics_a58f22954611dbceeca8a6ddb910b4b71}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!get\_input\_coordinates@{get\_input\_coordinates}}
+\index{get\_input\_coordinates@{get\_input\_coordinates}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{get\_input\_coordinates()}{get\_input\_coordinates()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::get\+\_\+input\+\_\+coordinates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_ae772bbcf4eae0578518fa53fc612f0cd}\label{class_inverse___kinematics_ae772bbcf4eae0578518fa53fc612f0cd}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!get\_output\_angles@{get\_output\_angles}}
+\index{get\_output\_angles@{get\_output\_angles}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{get\_output\_angles()}{get\_output\_angles()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::get\+\_\+output\+\_\+angles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a87b193fd98810f7d69649262f5147bba}\label{class_inverse___kinematics_a87b193fd98810f7d69649262f5147bba}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!get\_output\_coordinates@{get\_output\_coordinates}}
+\index{get\_output\_coordinates@{get\_output\_coordinates}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{get\_output\_coordinates()}{get\_output\_coordinates()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Inverse\+\_\+\+Kinematics\+::get\+\_\+output\+\_\+coordinates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a0d46eb4417f9f13e0fde22161975fef3}\label{class_inverse___kinematics_a0d46eb4417f9f13e0fde22161975fef3}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!reset\_pose@{reset\_pose}}
+\index{reset\_pose@{reset\_pose}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{reset\_pose()}{reset\_pose()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::reset\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a5d4971a6619c9a6ef4cf78ae9b2120d2}\label{class_inverse___kinematics_a5d4971a6619c9a6ef4cf78ae9b2120d2}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!set\_current\_pose@{set\_current\_pose}}
+\index{set\_current\_pose@{set\_current\_pose}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{set\_current\_pose()}{set\_current\_pose()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::set\+\_\+current\+\_\+pose (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+current\+\_\+robot\+\_\+pose }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a7acafa63f206082d839c4032edb5492e}\label{class_inverse___kinematics_a7acafa63f206082d839c4032edb5492e}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!set\_dh\_a@{set\_dh\_a}}
+\index{set\_dh\_a@{set\_dh\_a}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{set\_dh\_a()}{set\_dh\_a()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::set\+\_\+dh\+\_\+a (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+dh\+\_\+a }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a550aecc6a610f2a881f8ee3ebd2543c5}\label{class_inverse___kinematics_a550aecc6a610f2a881f8ee3ebd2543c5}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!set\_dh\_alpha@{set\_dh\_alpha}}
+\index{set\_dh\_alpha@{set\_dh\_alpha}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{set\_dh\_alpha()}{set\_dh\_alpha()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::set\+\_\+dh\+\_\+alpha (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+dh\+\_\+alpha }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a96c722b6043984be21ef06e19681e876}\label{class_inverse___kinematics_a96c722b6043984be21ef06e19681e876}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!set\_dh\_d@{set\_dh\_d}}
+\index{set\_dh\_d@{set\_dh\_d}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{set\_dh\_d()}{set\_dh\_d()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::set\+\_\+dh\+\_\+d (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+dh\+\_\+d }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a5dc214482c773eb729474674e8bc51b0}\label{class_inverse___kinematics_a5dc214482c773eb729474674e8bc51b0}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!set\_input\_angles@{set\_input\_angles}}
+\index{set\_input\_angles@{set\_input\_angles}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{set\_input\_angles()}{set\_input\_angles()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::set\+\_\+input\+\_\+angles (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+input\+\_\+joint\+\_\+angles }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a3557a3dcbf0d413e53b32365b7e69dc1}\label{class_inverse___kinematics_a3557a3dcbf0d413e53b32365b7e69dc1}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!set\_input\_coordinates@{set\_input\_coordinates}}
+\index{set\_input\_coordinates@{set\_input\_coordinates}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{set\_input\_coordinates()}{set\_input\_coordinates()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::set\+\_\+input\+\_\+coordinates (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+input\+\_\+joint\+\_\+coordinates }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a189d9d8296d7cb8625f71bc9b9d6a18f}\label{class_inverse___kinematics_a189d9d8296d7cb8625f71bc9b9d6a18f}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!set\_output\_angles@{set\_output\_angles}}
+\index{set\_output\_angles@{set\_output\_angles}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{set\_output\_angles()}{set\_output\_angles()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::set\+\_\+output\+\_\+angles (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+output\+\_\+joint\+\_\+angles }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_a95199430e89ac6ba896f33a783f84d9d}\label{class_inverse___kinematics_a95199430e89ac6ba896f33a783f84d9d}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!set\_output\_coordinates@{set\_output\_coordinates}}
+\index{set\_output\_coordinates@{set\_output\_coordinates}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{set\_output\_coordinates()}{set\_output\_coordinates()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::set\+\_\+output\+\_\+coordinates (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+output\+\_\+joint\+\_\+coordinates }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_inverse___kinematics_aabdbefea640a62322e1609a06e39b324}\label{class_inverse___kinematics_aabdbefea640a62322e1609a06e39b324}} 
+\index{Inverse\_Kinematics@{Inverse\_Kinematics}!solve\_IK@{solve\_IK}}
+\index{solve\_IK@{solve\_IK}!Inverse\_Kinematics@{Inverse\_Kinematics}}
+\doxysubsubsection{\texorpdfstring{solve\_IK()}{solve\_IK()}}
+{\footnotesize\ttfamily void Inverse\+\_\+\+Kinematics\+::solve\+\_\+\+IK (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{input\+\_\+joint\+\_\+coordinates,  }\item[{const std\+::vector$<$ double $>$ \&}]{input\+\_\+joint\+\_\+angles }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_inverse__kinematics_8hpp}{Inverse\+\_\+kinematics.\+hpp}}\item 
+app/\mbox{\hyperlink{_inverse__kinematics_8cpp}{Inverse\+\_\+kinematics.\+cpp}}\end{DoxyCompactItemize}

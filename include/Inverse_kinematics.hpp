@@ -53,47 +53,47 @@
 class Inverse_Kinematics {
  private:
   // robot manipulator input joint angles
-  std::vector <double> input_joint_angles;
+  std::vector<double> input_joint_angles;
   // robot manipulator input joint coordinates
-  std::vector <double> input_joint_coordinates;
+  std::vector<double> input_joint_coordinates;
   // robot manipulator output joint angles
-  std::vector <double> output_joint_coordinates;
+  std::vector<double> output_joint_coordinates;
   // robot manipulator output joint angles
-  std::vector <double> output_joint_angles;
+  std::vector<double> output_joint_angles;
   // robot manipulator current position
-  std::vector <double> current_robot_pose;
+  std::vector<double> current_robot_pose;
   // robot manipulator link angles
-  std::vector <double> link_lengths;
+  std::vector<double> link_lengths;
   // robot manipulator joint angle constraints
-  std::vector <double> joint_angle_constraints;
+  std::vector<double> joint_angle_constraints;
   // robot manipulator dh parameter-a
-  std::vector <double> dh_a;
+  std::vector<double> dh_a;
   // robot manipulator dh parameter-d
-  std::vector <double> dh_d;
+  std::vector<double> dh_d;
   // robot manipulator dh parameter-alpha
-  std::vector <double> dh_alpha;
+  std::vector<double> dh_alpha;
   // robot manipulator output bias
-  std::vector <double> output_bias;
+  std::vector<double> output_bias;
 
  public:
   // method to compute Inverse kinematics
-  void solve_IK(std::vector<double>, std::vector<double>);
+  void solve_IK(const std::vector<double>&, const std::vector<double>&);
   // method to set input joint coordinates
-  void set_input_coordinates(std::vector<double>);
+  void set_input_coordinates(const std::vector<double>&);
   // method to set output joint coordinates
-  void set_output_coordinates(std::vector<double>);
+  void set_output_coordinates(const std::vector<double>&);
   // method to set output joint angles
-  void set_output_angles(std::vector<double>);
+  void set_output_angles(const std::vector<double>&);
   // method to set input joint angles
-  void set_input_angles(std::vector<double>);
+  void set_input_angles(const std::vector<double>&);
   // method to set current manipulator end effector position
-  void set_current_pose(std::vector<double>);
+  void set_current_pose(const std::vector<double>&);
   // method to set dh parameter-a
-  void set_dh_a(std::vector<double>);
+  void set_dh_a(const std::vector<double>&);
   // method to set dh parameter-d
-  void set_dh_d(std::vector<double>);
+  void set_dh_d(const std::vector<double>&);
   // method to set dh parameter-d
-  void set_dh_alpha(std::vector<double>);
+  void set_dh_alpha(const std::vector<double>&);
   // method to get input joint coordinates
   std::vector<double> get_input_coordinates();
   // method to get output joint coordinates
@@ -113,7 +113,7 @@ class Inverse_Kinematics {
   // method to reset the manipulator
   void reset_pose();
   // method to convert pitch, yaw, roll to rotation matrix
-  std::vector<double> convert_input_angles_to_rotation_matrix
-  (std::vector<double>);
+  std::vector<double> convert_input_angles_to_rotation_matrix(
+      const std::vector<double>&);
 };
 #endif  // INCLUDE_INVERSE_KINEMATICS_HPP_

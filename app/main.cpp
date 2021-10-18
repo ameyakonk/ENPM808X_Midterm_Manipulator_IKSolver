@@ -64,4 +64,5 @@ int main() {
   for (i = 0; i < 6; i++) {
     std::cout << I.get_output_angles()[i] << std::endl;
   }
+  I.reset_pose();
 }

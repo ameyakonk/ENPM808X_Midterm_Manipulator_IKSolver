@@ -92,6 +92,13 @@ void Forward_Kinematics::solve_FK(
   end_effector_coordinates.push_back(final_transformation_matrix(3, 4));
   // setting the output_coordinates as end_effector_coordinates
   set_output_coordinates(end_effector_coordinates);
+  set_output_angles(_input_joint_angles);
+  set_input_angles(_input_joint_angles);
+  set_current_pose(_input_joint_angles);
+  std::vector<double> output_coordinates = get_output_coordinates();
+  std::vector<double> output_angles = get_output_angles();
+  std::vector<double> input_angles = get_input_angles();
+  std::vector<double> current_pose = get_current_pose();
 }
 /**
  * @fn void set_output_coordinates(std::vector<double>)

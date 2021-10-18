@@ -173,8 +173,10 @@ https://matplotlib-cpp.readthedocs.io/en/latest/
 ### Building the Program and Tests
 
 ```
+sudo apt-get install git
 git clone --recursive https://github.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.git
 cd <path to repository>
+git checkout remotes/origin/Phase1
 mkdir build
 cd build
 cmake ..

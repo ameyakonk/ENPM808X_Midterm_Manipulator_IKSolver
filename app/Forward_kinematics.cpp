@@ -52,6 +52,7 @@
  */
 void Forward_Kinematics::solve_FK(
     const std::vector<double> &_input_joint_angles) {
+  /*  
   Inverse_Kinematics I;  // Calling an object from the Inverse Kinematics Class
   // set the dh_d for the given inputs
   I.set_dh_d( { 0, 5, 10, 0, 0, 0 });
@@ -71,7 +72,7 @@ void Forward_Kinematics::solve_FK(
   // Iterating through each transformation matrix and
   /* calculating the final_transformation_matrix
    * by multiplying individual trans_mat */
-  trans_mat.resize(4, 4);
+  /*trans_mat.resize(4, 4);
   for (int r = 0; r < 6; r++) {
     trans_mat << cos(_input_joint_angles[i]), (-cos(I.get_dh_alpha()[i]))
         * sin(_input_joint_angles[i]), sin(I.get_dh_alpha()[i])
@@ -83,15 +84,15 @@ void Forward_Kinematics::solve_FK(
         I.get_dh_alpha()[i]), I.get_dh_d()[i], 0, 0, 0, 1;
     final_transformation_matrix *= trans_mat;
     i++;
-  }
+  }*/
   /* extracting X,Y,Z from the final_transformation_matrix. */
   // to store the end-effector(X,Y,Z) positions
-  std::vector<double> end_effector_coordinates;
+  /*std::vector<double> end_effector_coordinates;
   end_effector_coordinates.push_back(final_transformation_matrix(1, 4));
   end_effector_coordinates.push_back(final_transformation_matrix(2, 4));
   end_effector_coordinates.push_back(final_transformation_matrix(3, 4));
-  // setting the output_coordinates as end_effector_coordinates
-  set_output_coordinates(end_effector_coordinates);
+  // setting the output_coordinates as end_effector_coordinates 
+  */
 }
 /**
  * @fn void set_output_coordinates(std::vector<double>)

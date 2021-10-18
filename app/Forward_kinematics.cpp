@@ -57,10 +57,10 @@ void Forward_Kinematics::solve_FK(std::vector<double> _input_joint_angles) {
   I.set_dh_a( { 0, 0, 0, 0, 0, 0 });  // set the df_a for the given inputs
   I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
   // set the dh_alpha for the given inputs.
-  Matrix<double, 4, 4> trans_mat;  // Creating a 4 X 4 matrix for the transformation matrix
-  Matrix<double, 4, 4> final_transformation_matrix;  // Created a 4 X 4 matrix for the final transformation matrix.
+  Eigen::Matrix<double, 4, 4> trans_mat;  // Creating a 4 X 4 matrix for the transformation matrix
+  Eigen::Matrix<double, 4, 4> final_transformation_matrix;  // Created a 4 X 4 matrix for the final transformation matrix.
   // Have issues with accessing dh_d from the IK class.
-  //std::vector<double>::size_type i = 0;
+  std::vector<double>::size_type i = 0;
   //for (i = 0; i < 6; i++) {
   //  cout << I.get_dh_d()[i] << endl;
   //}

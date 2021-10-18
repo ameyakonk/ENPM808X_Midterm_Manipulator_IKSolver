@@ -25,7 +25,7 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * @file main.hpp
+ * @file main.cpp
  * @author Rahul Karanam , Ameya Konkar
  * @copyright BSD 3-Clause License
  *
@@ -37,9 +37,9 @@
  */
 
 // Header Files
-#include "Inverse_kinematics.hpp"
-#include <iostream>
 #include <Eigen/Core>
+#include <iostream>
+#include "Inverse_kinematics.hpp"
 #include "Forward_kinematics.hpp"
 #define PI 3.14
 using std::cout;

@@ -123,6 +123,9 @@ We are going with a BSD 3-Clause License.
 ---
 Please find the below google docs for the Product backlog and sprint planning sheets.
 
+To check Project Quadchart:
+https://drive.google.com/file/d/1f5DGQsuPYc3aL75Bu-q06wnC6IMKLkDA/view?usp=sharing
+
 To check Phase-1 update presentation video:
 https://drive.google.com/file/d/1Q9mQk73tnr3uhxe9OfRh8j96AzLhXw7L/view?usp=sharing
 

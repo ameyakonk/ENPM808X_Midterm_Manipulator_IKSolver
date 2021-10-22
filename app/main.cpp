@@ -63,6 +63,7 @@ int main() {
   std::vector<double>::size_type i = 0;
   for (i = 0; i < 6; i++) {
     std::cout << I.get_output_angles()[i] << std::endl;
+    std::cout << F.get_output_coordinates()[i] << std::endl;
   }
   I.reset_pose();
 }

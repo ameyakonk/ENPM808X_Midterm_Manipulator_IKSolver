@@ -75,7 +75,7 @@ std::vector<double> Inverse_Kinematics::convert_input_angles_to_rotation_matrix(
     rotation_matrix.push_back(ROTATION_MATRIX(r));
   /*  Setting input parameters */
   set_input_angles(rotation_matrix);
-  set_input_coordinates( { 20, 20, 20 });
+  set_input_coordinates( { 5, 8.6, 5 });
   set_dh_d( { 0, 5, 10, 0, 0, 0 });
   set_dh_a( { 0, 0, 0, 0, 0, 0 });
   set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });

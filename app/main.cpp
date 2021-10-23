@@ -42,6 +42,8 @@
 #include <iostream>
 #include "Inverse_kinematics.hpp"
 #include "Forward_kinematics.hpp"
+#include "matplotlibcpp.h"
+namespace plt = matplotlibcpp;
 #define PI 3.14
 using std::cout;
 using std::endl;
@@ -55,6 +57,7 @@ using namespace Eigen;
  * @return 0;
  */
 int main() {
+<<<<<<< HEAD
 	// Instantiating Inverse_kinematics class
 	Inverse_Kinematics I;
 	// Instantiating Forward kinematics class
@@ -74,5 +77,36 @@ int main() {
         //std::cout<< F.get_current_pose()[j]<<std::endl;
 	}
 
+=======
+  // Instantiating Inverse_kinematics class
+  Inverse_Kinematics I;
+  // Instantiating Forward kinematics class
+  Forward_Kinematics F;
+  std::vector<double> temp_input_joint_angles { PI / 2, PI / 4, PI / 4 };
+  I.convert_input_angles_to_rotation_matrix(temp_input_joint_angles);
+  //F.solve_FK(I.get_output_angles());
+  std::vector<double>::size_type i = 0;
+  std::vector<std::vector<double>> x, y, z;
+    for (double i = -5; i <= 5;  i += 0.25) {
+        std::vector<double> x_row, y_row, z_row;
+        for (double j = -5; j <= 5; j += 0.25) {
+            x_row.push_back(i);
+            y_row.push_back(j);
+            z_row.push_back(::std::sin(::std::hypot(i, j)));
+        }
+        x.push_back(x_row);
+        y.push_back(y_row);
+        z.push_back(z_row);
+    }
+
+    plt::plot_surface(x, y, z);
+    plt::show();
+
+  for (i = 0; i < 6; i++) {
+    std::cout << I.get_output_angles()[i] << std::endl;
+    std::cout << F.get_output_coordinates()[i] << std::endl;
+  }
+  I.reset_pose();
+>>>>>>> 799acf725c123fcd931db50319c708d10348776a
 }
 

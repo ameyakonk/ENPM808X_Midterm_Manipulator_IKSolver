@@ -40,8 +40,10 @@
 #include <cstdlib>
 #include <cmath>
 #include "Eigen/Core"
+#include "Eigen/Dense"
 #include "Inverse_kinematics.hpp"
-//using Eigen::Matrix;
+using Eigen::Matrix;
+//using namespace Eigen;
 /**
  * @fn void solve_FK(std::vector<double>)
  * @brief This Function will compute the ForwardKinematics
@@ -53,7 +55,7 @@
  */
 void Forward_Kinematics::solve_FK(
     const std::vector<double> &_input_joint_angles) {
-    
+
   Inverse_Kinematics I;  // Calling an object from the Inverse Kinematics Class
   // set the dh_d for the given inputs
   I.set_dh_d( { 0, 5, 10, 0, 0, 0 });
@@ -62,39 +64,121 @@ void Forward_Kinematics::solve_FK(
   // set the dh_alpha for the given inputs.
   I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
   // Creating a 4 X 4 matrix for the transformation matrix
-  Eigen::Matrix<double, 4, 4> trans_mat[6];
+  typedef Matrix<double, 4, 4> Matrix4f;
+
   // Created a 4 X 4 matrix for the final transformation matrix
-  Eigen::Matrix<double, 4, 4> final_transformation_matrix;
-  // Have issues with accessing dh_d from the IK class.
-  std::vector<double>::size_type i = 0;
-  // for (i = 0; i < 6; i++) {
-  //  cout << I.get_dh_d()[i] << endl;
-  // }
-  // Iterating through each transformation matrix and
-  /* calculating the final_transformation_matrix
-   * by multiplying individual trans_mat */
-  //trans_mat.resize(4, 4);
-  for (int r = 0; r < 6; r++) {
-    trans_mat[i] << cos(_input_joint_angles[i]), (-cos(I.get_dh_alpha()[i]))
-        * sin(_input_joint_angles[i]), sin(I.get_dh_alpha()[i])
-        * sin(_input_joint_angles[i]), I.get_dh_a()[i]
-        * cos(_input_joint_angles[i]), sin(_input_joint_angles[i]), cos(
-        I.get_dh_alpha()[i]) * cos(_input_joint_angles[i]), (-sin(
-        I.get_dh_alpha()[i]) * cos(_input_joint_angles[i]), I.get_dh_a()[i]
-        * sin(_input_joint_angles[i])), 0, sin(I.get_dh_alpha()[i]), cos(
-        I.get_dh_alpha()[i]), I.get_dh_d()[i], 0, 0, 0, 1;
-    final_transformation_matrix *= trans_mat[i];
-    i++;
-  }
+  Matrix4f final_transformation_matrix;
+
+  final_transformation_matrix(0, 0) = cos(_input_joint_angles[0])
+      * (cos(_input_joint_angles[1])
+          * (cos(_input_joint_angles[5]) * cos(_input_joint_angles[3])
+              * cos(_input_joint_angles[4])
+              - sin(_input_joint_angles[3]) * sin(_input_joint_angles[5]))
+          - sin(_input_joint_angles[4]) * sin(_input_joint_angles[1])
+              * cos(_input_joint_angles[5]))
+      - sin(_input_joint_angles[0])
+          * (cos(_input_joint_angles[5]) * cos(_input_joint_angles[4])
+              * sin(_input_joint_angles[3])
+              + cos(_input_joint_angles[3]) * sin(_input_joint_angles[5]));
+  final_transformation_matrix(0, 1) = sin(_input_joint_angles[0])
+      * (cos(_input_joint_angles[1])
+          * (cos(_input_joint_angles[5]) * cos(_input_joint_angles[3])
+              * cos(_input_joint_angles[4])
+              - sin(_input_joint_angles[3]) * sin(_input_joint_angles[5]))
+          - sin(_input_joint_angles[4]) * sin(_input_joint_angles[1])
+              * cos(_input_joint_angles[5]))
+      + cos(_input_joint_angles[0])
+          * (cos(_input_joint_angles[5]) * cos(_input_joint_angles[4])
+              * sin(_input_joint_angles[3])
+              + cos(_input_joint_angles[3]) * sin(_input_joint_angles[5]));
+  final_transformation_matrix(0, 2) = -sin(_input_joint_angles[1])
+      * cos(_input_joint_angles[5]) * cos(_input_joint_angles[3])
+      * cos(_input_joint_angles[4])
+      - sin(_input_joint_angles[5]) * cos(_input_joint_angles[1])
+          * cos(_input_joint_angles[5])
+      + sin(_input_joint_angles[5]) * sin(_input_joint_angles[1])
+          * sin(_input_joint_angles[3]);
+  final_transformation_matrix(0, 3) = 0;
+  final_transformation_matrix(1, 0) = cos(_input_joint_angles[0])
+      * (-cos(_input_joint_angles[1])
+          * (sin(_input_joint_angles[5]) * cos(_input_joint_angles[3])
+              * cos(_input_joint_angles[4])
+              + sin(_input_joint_angles[3]) * cos(_input_joint_angles[5]))
+          + sin(_input_joint_angles[4]) * sin(_input_joint_angles[1])
+              * sin(_input_joint_angles[5]))
+      - sin(_input_joint_angles[0])
+          * (-sin(_input_joint_angles[5]) * cos(_input_joint_angles[4])
+              * sin(_input_joint_angles[3])
+              + cos(_input_joint_angles[3]) * cos(_input_joint_angles[5]));
+  final_transformation_matrix(1, 1) = sin(_input_joint_angles[0])
+      * (-cos(_input_joint_angles[1])
+          * (sin(_input_joint_angles[5]) * cos(_input_joint_angles[3])
+              * cos(_input_joint_angles[4])
+              + sin(_input_joint_angles[3]) * cos(_input_joint_angles[5]))
+          + sin(_input_joint_angles[4]) * sin(_input_joint_angles[1])
+              * sin(_input_joint_angles[5]))
+      + cos(_input_joint_angles[0])
+          * (-sin(_input_joint_angles[5]) * cos(_input_joint_angles[4])
+              * sin(_input_joint_angles[3])
+              + cos(_input_joint_angles[3]) * cos(_input_joint_angles[5]));
+  final_transformation_matrix(1, 2) = sin(_input_joint_angles[1])
+      * sin(_input_joint_angles[5]) * cos(_input_joint_angles[3])
+      * cos(_input_joint_angles[4])
+      + sin(_input_joint_angles[4]) * cos(_input_joint_angles[1])
+          * sin(_input_joint_angles[5])
+      + cos(_input_joint_angles[5]) * sin(_input_joint_angles[1])
+          * sin(_input_joint_angles[3]);
+  ;
+  final_transformation_matrix(1, 3) = 0;
+  final_transformation_matrix(2, 0) = cos(_input_joint_angles[0])
+      * (cos(_input_joint_angles[1]) * cos(_input_joint_angles[3])
+          * sin(_input_joint_angles[4])
+          + cos(_input_joint_angles[4]) * sin(_input_joint_angles[1]))
+      - sin(_input_joint_angles[0]) * sin(_input_joint_angles[3])
+          * sin(_input_joint_angles[4]);
+  final_transformation_matrix(2, 1) = sin(_input_joint_angles[0])
+      * (cos(_input_joint_angles[1]) * cos(_input_joint_angles[3])
+          * sin(_input_joint_angles[4])
+          + cos(_input_joint_angles[4]) * sin(_input_joint_angles[1]))
+      + cos(_input_joint_angles[0]) * sin(_input_joint_angles[3])
+          * sin(_input_joint_angles[4]);
+  ;
+  final_transformation_matrix(2, 2) = -sin(_input_joint_angles[1])
+      * cos(_input_joint_angles[3]) * sin(_input_joint_angles[4])
+      + cos(_input_joint_angles[4]) * cos(_input_joint_angles[1]);
+  final_transformation_matrix(2, 3) = 0;
+  final_transformation_matrix(3, 0) = cos(_input_joint_angles[0])
+      * sin(_input_joint_angles[1]) * I.get_dh_d()[2]
+      - sin(_input_joint_angles[0]) * I.get_dh_d()[1];
+  final_transformation_matrix(3, 1) = sin(_input_joint_angles[0])
+      * sin(_input_joint_angles[1]) * I.get_dh_d()[2]
+      + cos(_input_joint_angles[0]) * I.get_dh_d()[1];
+  final_transformation_matrix(3, 2) = I.get_dh_d()[2]
+      * cos(_input_joint_angles[1]);
+  final_transformation_matrix(3, 3) = 1;
+
   /* extracting X,Y,Z from the final_transformation_matrix. */
   // to store the end-effector(X,Y,Z) positions
   std::vector<double> end_effector_coordinates;
-  end_effector_coordinates.push_back(final_transformation_matrix(1, 4));
-  end_effector_coordinates.push_back(final_transformation_matrix(2, 4));
-  end_effector_coordinates.push_back(final_transformation_matrix(3, 4));
-  // setting the output_coordinates as end_effector_coordinates 
+
+  std::vector<double> end_effector_pose;
+  end_effector_pose.push_back(final_transformation_matrix(0, 0));
+  end_effector_pose.push_back(final_transformation_matrix(1, 0));
+  end_effector_pose.push_back(final_transformation_matrix(2, 0));
+  end_effector_pose.push_back(final_transformation_matrix(0, 1));
+  end_effector_pose.push_back(final_transformation_matrix(1, 1));
+  end_effector_pose.push_back(final_transformation_matrix(2, 1));
+  end_effector_pose.push_back(final_transformation_matrix(0, 2));
+  end_effector_pose.push_back(final_transformation_matrix(1, 2));
+  end_effector_pose.push_back(final_transformation_matrix(2, 2));
+
+  end_effector_coordinates.push_back(final_transformation_matrix(3, 0));
+  end_effector_coordinates.push_back(final_transformation_matrix(3, 1));
+  end_effector_coordinates.push_back(final_transformation_matrix(3, 2));
+  // setting the output_coordinates as end_effector_coordinates
   set_output_coordinates(end_effector_coordinates);
-  }
+  set_current_pose(end_effector_pose);
+}
 /**
  * @fn void set_output_coordinates(std::vector<double>)
  * @brief It sets the output_coordinates(input) to the output_joint_coordinates

@@ -37,7 +37,8 @@
  */
 
 // Header Files
-#include <Eigen/Core>
+#include "Eigen/Core"
+#include "Eigen/Dense"
 #include <iostream>
 #include "Inverse_kinematics.hpp"
 #include "Forward_kinematics.hpp"
@@ -46,6 +47,7 @@ namespace plt = matplotlibcpp;
 #define PI 3.14
 using std::cout;
 using std::endl;
+using namespace Eigen;
 
 /**
  * @fn int main()
@@ -55,32 +57,19 @@ using std::endl;
  * @return 0;
  */
 int main() {
-
-  Inverse_Kinematics I;
-  // Instantiating Forward kinematics class
-  Forward_Kinematics F;
-  std::vector<double> temp_input_joint_angles { PI / 2, PI / 4, PI / 4 };
-  I.convert_input_angles_to_rotation_matrix(temp_input_joint_angles);
-  //F.solve_FK(I.get_output_angles());
-  std::vector<double>::size_type i = 0;
-  std::vector<std::vector<double>> x,y,z;
-  //    for (double i = 0; i <= 5;  i += 0.25) {
-  //       std::vector<double> x_row, y_row, z_row;
-  //       for (double j = 0; j <= 5; j += 0.25) {
-  //           x_row.push_back(i);
-  //           y_row.push_back(i);
-  //           z_row.push_back(i);
-  //       }
-  //       x.push_back(x_row);
-  //       y.push_back(y_row);
-  //       z.push_back(z_row);
-  //   }
-
-    plt::plot(x);
-    plt::show();
-
-  for (i = 0; i < 6; i++) {
-    std::cout << I.get_output_angles()[i] << std::endl;
-  }
-  I.reset_pose();
+	// Instantiating Inverse_kinematics class
+	Inverse_Kinematics I;
+	// Instantiating Forward kinematics class
+	Forward_Kinematics F;
+	//std::vector<double> end {PI / 6, PI / 3, 0, PI / 4, 1.308, PI / 2 };
+    //std::vector<double> current_pose {-0.66,0.43,0.61,0.73,0.21,0.64,0.149,0.87,-0.46};
+    std::vector<double> current_pose {-0.66051,0.735723,0.149793,0.435753,0.213166,0.87446,0.611415,0.642862,-0.461392};
+    std::vector<double> rot_mat=I.convert_input_angles_to_rotation_matrix(current_pose);
+	//F.solve_FK(end);
+    F.solve_FK(I.get_output_angles());
+	for (int j = 0; j < 3; j++) {
+		std::cout << F.get_output_coordinates()[j] << std::endl;
+  
+	}
 }
+

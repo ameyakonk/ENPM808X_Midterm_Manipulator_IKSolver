@@ -18,6 +18,9 @@ matrix:
             - g++-5
             - cmake
             - cmake-data
+            - python3-matplotlib
+            - python3.8-dev
+            
       env: COMPILER=g++-5
 
 before_install:

@@ -43,7 +43,7 @@
 #include "Inverse_kinematics.hpp"
 #include "Forward_kinematics.hpp"
 #include "matplotlibcpp.h"
-namespace plt = matplotlibcpp;
+//namespace plt = matplotlibcpp;
 #define PI 3.14
 using std::cout;
 using std::endl;
@@ -88,7 +88,7 @@ int main() {
         z.push_back(z_row);
     }
 
-    plt::plot_surface(x, y, z);
-    plt::show();
+    matplotlibcpp::plot_surface(x, y, z);
+    matplotlibcpp::show();
 }
 

@@ -57,6 +57,7 @@ using namespace Eigen;
  * @return 0;
  */
 int main() {
+
 	// Instantiating Inverse_kinematics class
 	Inverse_Kinematics I;
 	// Instantiating Forward kinematics class
@@ -71,5 +72,6 @@ int main() {
 		std::cout << F.get_output_coordinates()[j] << std::endl;
   
 	}
+
 }
 

@@ -163,13 +163,13 @@ void Forward_Kinematics::solve_FK(
 
   std::vector<double> end_effector_pose;
   end_effector_pose.push_back(final_transformation_matrix(0, 0));
-  end_effector_pose.push_back(final_transformation_matrix(1, 0));
-  end_effector_pose.push_back(final_transformation_matrix(2, 0));
   end_effector_pose.push_back(final_transformation_matrix(0, 1));
-  end_effector_pose.push_back(final_transformation_matrix(1, 1));
-  end_effector_pose.push_back(final_transformation_matrix(2, 1));
   end_effector_pose.push_back(final_transformation_matrix(0, 2));
+  end_effector_pose.push_back(final_transformation_matrix(1, 0));
+  end_effector_pose.push_back(final_transformation_matrix(1, 1));
   end_effector_pose.push_back(final_transformation_matrix(1, 2));
+  end_effector_pose.push_back(final_transformation_matrix(2, 0));
+  end_effector_pose.push_back(final_transformation_matrix(2, 1));
   end_effector_pose.push_back(final_transformation_matrix(2, 2));
 
   end_effector_coordinates.push_back(final_transformation_matrix(3, 0));

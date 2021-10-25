@@ -110,8 +110,6 @@ void Inverse_Kinematics::solve_IK(
       ((cos(theta[0]) * input_joint_coordinates[i - 1])
           + (sin(theta[0]) * input_joint_coordinates[i]))
           / input_joint_coordinates[i + 1]);
-
-  std::cout << theta[1] << std::endl;
   
   double d3 = (input_joint_coordinates[i - 1] * cos(theta[0]))
       + (sin(theta[0]) * input_joint_coordinates[i]) * sin(theta[1])
@@ -155,7 +153,7 @@ void Inverse_Kinematics::solve_IK(
   std::vector<double> _dh_d { 0, 5, d3, 0, 0, 0 };
   set_dh_d(_dh_d);
   for (int k = 0; k < 6; k++)
-    output_joint_angles.push_back(theta[k]);
+    output_joint_angles.push_back(fabs(theta[k]));
   free(theta);
   set_output_angles(output_joint_angles);
 }

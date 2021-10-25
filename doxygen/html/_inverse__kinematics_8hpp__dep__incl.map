@@ -1,6 +1,8 @@
 <map id="include/Inverse_kinematics.hpp" name="include/Inverse_kinematics.hpp">
-<area shape="rect" id="node1" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="226,5,454,32"/>
+<area shape="rect" id="node1" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="295,5,523,32"/>
 <area shape="rect" id="node2" href="$_forward__kinematics_8cpp.html" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="5,80,213,107"/>
 <area shape="rect" id="node3" href="$_inverse__kinematics_8cpp.html" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="238,80,442,107"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="466,80,577,107"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="425,155,535,181"/>
+<area shape="rect" id="node5" href="$_manipulator_8hpp.html" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="517,80,696,107"/>
+<area shape="rect" id="node6" href="$_manipulator_8cpp.html" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="560,155,715,181"/>
 </map>

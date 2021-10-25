@@ -1,6 +1,6 @@
 # ENPM808X_Midterm_Manipulator_IK_Solver
-[![Build Status](https://app.travis-ci.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.svg?branch=Phase2)](https://app.travis-ci.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver)
-[![Coverage Status](https://coveralls.io/repos/github/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver/badge.svg?branch=Phase2)](https://coveralls.io/github/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver?branch=Phase2)
+[![Build Status](https://app.travis-ci.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.svg?branch=master)](https://app.travis-ci.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver)
+[![Coverage Status](https://coveralls.io/repos/github/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver/badge.svg?branch=master)](https://coveralls.io/github/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver?branch=master)
 
 ## Project Description 
 

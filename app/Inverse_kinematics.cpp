@@ -116,6 +116,7 @@ void Inverse_Kinematics::solve_IK(
   double d3 = (input_joint_coordinates[i - 1] * cos(theta[0]))
       + (sin(theta[0]) * input_joint_coordinates[i]) * sin(theta[1])
       + (input_joint_coordinates[i + 1] * cos(theta[1]));
+  
   theta[3] = atan(
       ((-sin(theta[0])) * input_joint_angles[i + 5]
           + cos(theta[0]) * input_joint_angles[i + 6])
@@ -123,8 +124,8 @@ void Inverse_Kinematics::solve_IK(
               * (cos(theta[0]) * input_joint_angles[i + 5]
                   + sin(theta[0]) * input_joint_angles[i + 6])
               - sin(theta[1]) * input_joint_angles[i + 7])));
-  double I = cos(theta[0]) * input_joint_angles[i + 3]
-      + sin(theta[0]) * input_joint_angles[i + 4];
+  double I = cos(theta[0]) * input_joint_angles[i + 2]
+      + sin(theta[0]) * input_joint_angles[i + 3];
   double n = (-sin(theta[0])) * input_joint_angles[i + 2]
       + cos(theta[0]) * input_joint_angles[i + 3];
   theta[4] = atan(

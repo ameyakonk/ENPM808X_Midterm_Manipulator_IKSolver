@@ -214,3 +214,106 @@ TEST(get_output_angles_IK_4, should_return_output_angles) {
     EXPECT_TRUE((I.get_output_angles()[i] >= end_pose[i]-0.08) && (I.get_output_angles()[i] <= end_pose[i]+0.08));
 }
 
+/**
+ * @test This test checks for the Inverse and Forward Kinematics methods for the end effector pose. 
+ *       It checks whether the end_pose{5,8.66,5} match with the current pose.
+ * @brief Google Unit Test to check for end-effector pose from the solve_FK method using input parameters
+ *        from solve_IK parameters.
+ */
+TEST(FK_PLUS_IK_1, should_return_output_angles) {
+  Inverse_Kinematics I;
+  Forward_Kinematics F;
+  I.set_dh_d( { 0, 5, 10, 0, 0, 0 });
+  I.set_dh_a( { 0, 0, 0, 0, 0, 0 });
+  I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
+  I.set_input_coordinates({5,8.66,5});
+  
+  std::vector<double> current_pose {-0.66,0.43,0.61,0.73,0.21,0.64,0.149,0.87,-0.46};
+  std::vector<double>::size_type i = 0;
+  
+  I.solve_IK(I.get_input_coordinates(),current_pose);
+  F.solve_FK(I.get_output_angles());
+  
+  std::vector<double> end_pose{5,8.66,5};
+  
+  for (i = 0; i < 3; i++)
+    EXPECT_TRUE((F.get_output_coordinates()[i] >= end_pose[i]-0.08) && (F.get_output_coordinates()[i] <= end_pose[i]+0.08));
+}
+
+/**
+ * @test This test checks for the Inverse and Forward Kinematics methods solve_IK for the end effector pose. 
+ *       It checks whether the end_pose{0.001,7.06,8.66} match with the current pose.
+ * @brief Google Unit Test to check for end-effector pose from the solve_FK method using input parameters
+ *        from solve_IK parameters.
+ */ 
+TEST(FK_PLUS_IK_2, should_return_output_angles) {
+  Inverse_Kinematics I;
+  Forward_Kinematics F;
+  I.set_dh_d( { 0, 5, 10, 0, 0, 0 });
+  I.set_dh_a( { 0, 0, 0, 0, 0, 0 });
+  I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
+  I.set_input_coordinates({0.001,7.06,8.66});
+
+  std::vector<double> current_pose {-0.88,-0.17,0.43,0.45,-0.15,0.87,-0.08,0.97,0.21};
+  std::vector<double>::size_type i = 0;
+  
+  I.solve_IK(I.get_input_coordinates(),current_pose);
+  F.solve_FK(I.get_output_angles());
+  
+  std::vector<double> end_pose{0.001,7.06,8.66};
+  
+  for (i = 0; i < 3; i++)
+    EXPECT_TRUE((F.get_output_coordinates()[i] >= end_pose[i]-0.08) && (F.get_output_coordinates()[i] <= end_pose[i]+0.08));
+}
+
+/**
+ * @test This test checks for the Inverse and Forward Kinematics methods for the end effector pose. 
+ *       It checks whether the end_pose{3.62,7.8,7} match with the current pose.
+ * @brief Google Unit Test to check for end-effector pose from the solve_FK method using input parameters
+ *        from solve_IK method parameters.
+ */
+TEST(FK_PLUS_IK_3, should_return_output_angles) {
+  Inverse_Kinematics I;
+  Forward_Kinematics F;
+  I.set_dh_d( { 0, 5, 10, 0, 0, 0 });
+  I.set_dh_a( { 0, 0, 0, 0, 0, 0 });
+  I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
+  I.set_input_coordinates({3.62,7.8,7});
+
+  std::vector<double> current_pose {-0.9,-0.01,0.3,0.33,-0.67,0.66,0.28,0.7,0.61};
+  std::vector<double>::size_type i = 0;
+  
+  I.solve_IK(I.get_input_coordinates(),current_pose);
+  F.solve_FK(I.get_output_angles());
+  
+  std::vector<double> end_pose{3.62,7.8,7};
+  
+  for (i = 0; i < 3; i++)
+    EXPECT_TRUE((F.get_output_coordinates()[i] >= end_pose[i]-0.08) && (F.get_output_coordinates()[i] <= end_pose[i]+0.08));
+}
+
+/**
+ * @test This test checks for the Inverse and Forward Kinematics methods for the end effector pose. 
+ *       It checks whether the end_pose{2.6,9.6,5} match with the current pose.
+ * @brief Google Unit Test to check for end-effector pose from the solve_FK method using input parameters
+ *        from solve_IK method parameters.
+ */
+TEST(FK_PLUS_IK_4, should_return_output_angles) {
+  Inverse_Kinematics I;
+  Forward_Kinematics F;
+  I.set_dh_d( { 0, 5, 10, 0, 0, 0 });
+  I.set_dh_a( { 0, 0, 0, 0, 0, 0 });
+  I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
+  I.set_input_coordinates({2.6,9.6,5});
+  
+  std::vector<double> current_pose {-0.99,-0.12,0.055,-0.12,0.74,0.66,-0.04,0.66,-0.74};
+  std::vector<double>::size_type i = 0;
+  
+  I.solve_IK(I.get_input_coordinates(),current_pose);
+  F.solve_FK(I.get_output_angles());
+  
+  std::vector<double> end_pose{2.6,9.6,5};
+  
+  for (i = 0; i < 3; i++)
+    EXPECT_TRUE((F.get_output_coordinates()[i] >= end_pose[i]-0.08) && (F.get_output_coordinates()[i] <= end_pose[i]+0.08));
+}

@@ -89,4 +89,61 @@ TEST(get_input_angles_FK, should_return_set_values) {
   for (i = 0; i < 2; i++)
     ASSERT_EQ(_input_angles[i], F.get_input_angles()[i]);
 }
+/**
+ * @test This test checks for the Forward Kinematics method solve_FK. 
+ *       It checks whether the end effector coordinates({PI / 6, PI / 3, 0, PI / 4,1.30, PI /2 }) match with the output_coordinates.
+ * @brief Google Unit Test to check for end-effector coordinates from the solve_FK method and checking for the output bias of 0.08.
+ */
+TEST(solve_FK_1, should_return_output_coordinates) {
+  Forward_Kinematics F;
+  std::vector<double> end {PI / 6, PI / 3, 0, PI / 4,1.30, PI /2 };
+  std::vector<double>::size_type i = 0;
+  F.solve_FK(end);
+  std::vector<double> end_coord{5,8.66,5};
+  for (i = 0; i < 3; i++)
+    EXPECT_TRUE((F.get_output_coordinates()[i] >= end_coord[i]-0.08) && (F.get_output_coordinates()[i] <= end_coord[i]+0.08));
+}
+/**
+ * @test This test checks for the Forward Kinematics method solve_FK. 
+ *       It checks whether the end effector coordinates({PI / 4, PI / 6, 0, PI / 3,PI/3, PI /2 }) match with the output_coordinates.
+ * @brief Google Unit Test to check for end-effector coordinates from the solve_FK method and checking for the output bias of 0.08.
+ */
+TEST(solve_FK_2, should_return_output_coordinates) {
+  Forward_Kinematics F;
+  std::vector<double> end {PI / 4, PI / 6, 0, PI / 3,PI/3, PI /2 };
+  std::vector<double>::size_type i = 0;
+  F.solve_FK(end);
+  std::vector<double> end_coord{0.001,7.06,8.66};
+  for (i = 0; i < 3; i++)
+    EXPECT_TRUE((F.get_output_coordinates()[i] >= end_coord[i]-0.08) && (F.get_output_coordinates()[i] <= end_coord[i]+0.08));
+}
+/**
+ * @test This test checks for the Forward Kinematics method solve_FK. 
+ *       It checks whether the end effector coordinates({PI / 6, PI / 4, 0, PI / 2,PI/6, PI /3 }) match with the output_coordinates.
+ * @brief Google Unit Test to check for end-effector coordinates from the solve_FK method and checking for the output bias of 0.08.
+ */
+TEST(solve_FK_3, should_return_output_coordinates) {
+  Forward_Kinematics F;
+  std::vector<double> end {PI / 6, PI / 4, 0, PI / 2,PI/6, PI /3 };
+  std::vector<double>::size_type i = 0;
+  F.solve_FK(end);
+  std::vector<double> end_coord{3.62,7.8,7};
+  for (i = 0; i < 3; i++)
+    EXPECT_TRUE((F.get_output_coordinates()[i] >= end_coord[i]-0.08) && (F.get_output_coordinates()[i] <= end_coord[i]+0.08));
+}
+/**
+ * @test This test checks for the Forward Kinematics method solve_FK. 
+ *       It checks whether the end effector coordinates({PI / 4, PI / 3, 0, PI / 6,PI/2, PI /4 }) match with the output_coordinates.
+ * @brief Google Unit Test to check for end-effector coordinates from the solve_FK method and checking for the output bias of 0.08.
+ */
+TEST(solve_FK_4, should_return_output_coordinates) {
+  Forward_Kinematics F;
+  std::vector<double> end {PI / 4, PI / 3, 0, PI / 6,PI/2, PI /4 };
+  std::vector<double>::size_type i = 0;
+  F.solve_FK(end);
+  std::vector<double> end_coord{2.6,9.6,5};
+  for (i = 0; i < 3; i++)
+    EXPECT_TRUE((F.get_output_coordinates()[i] >= end_coord[i]-0.08) && (F.get_output_coordinates()[i] <= end_coord[i]+0.08));
+
+
 

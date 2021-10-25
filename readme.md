@@ -1,6 +1,7 @@
 # ENPM808X_Midterm_Manipulator_IK_Solver
 [![Build Status](https://app.travis-ci.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.svg?branch=master)](https://app.travis-ci.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver)
 [![Coverage Status](https://coveralls.io/repos/github/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver/badge.svg?branch=master)](https://coveralls.io/github/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver?branch=master)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 ## Project Description 
 
@@ -48,8 +49,9 @@ We are developing an inverse kinematics solver for 6 DOF serial Manipulators at 
 
 - These manipulators can be used for multiple parts.
 
+## Simulation
 
-
+We have simulated our output using visual-Kinematics(matplotlib).
 
 ## Approach
 
@@ -126,8 +128,8 @@ Please find the below google docs for the Product backlog and sprint planning sh
 To check Project Quadchart:
 https://drive.google.com/file/d/1f5DGQsuPYc3aL75Bu-q06wnC6IMKLkDA/view?usp=sharing
 
-To check Phase-1 update presentation video:
-https://drive.google.com/file/d/1Q9mQk73tnr3uhxe9OfRh8j96AzLhXw7L/view?usp=sharing
+To check Phase-2 update presentation video:
+https://drive.google.com/file/d/1AXTdUfsSIRdeRG1VYXJFTEf1PN5SPOOi/view?usp=sharing
 
 To check Project Backlog (Product Backlog, Iteration Backlogs, and Work Log):
 https://docs.google.com/spreadsheets/d/1uzkHEVrKEj08UWGMlCNrI8JZQGKhPk-L/edit#gid=1646452053
@@ -144,7 +146,8 @@ https://docs.google.com/document/d/1zEVBw1UfMGHF_3bLddfBvVKr5AerR_yLoXSyQXR5pro/
 We have two dependancies for the software to function properly.
 
 - Eigen :  We use this package for all our kiematics calculations.
-- Matplotlib : It is used for simulating our Robot IK solver method.
+- Visual Kinematics(Matplotlib) : It is used for Showing our IK solver methods
+- Python 2.7 or 3.8
 
 
 
@@ -168,6 +171,9 @@ https://eigen.tuxfamily.org/dox/GettingStarted.html
 Check out this link for installing matplotlib:
 https://matplotlib-cpp.readthedocs.io/en/latest/
 
+Check out this link for visual kinematics - python 
+https://github.com/dbddqy/visual_kinematics
+
 ---
 
 ### Building the Program and Tests
@@ -182,6 +188,7 @@ cd build
 cmake ..
 make
 Run program: ./app/shell-app
+To Run the demo:  cd .. && python3 demo.py
 ```
 ### To Run the Test
 

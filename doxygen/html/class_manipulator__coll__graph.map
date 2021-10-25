@@ -1,0 +1,5 @@
+<map id="Manipulator" name="Manipulator">
+<area shape="rect" id="node1" title="This Class will call the Forward and Inverse Kinematics." alt="" coords="121,95,221,121"/>
+<area shape="rect" id="node2" href="$class_forward___kinematics.html" title="The following Class contains all the methods,attributes of Forward Kinematics Class...." alt="" coords="5,5,160,32"/>
+<area shape="rect" id="node3" href="$class_inverse___kinematics.html" title="The following Class contains all the methods,attributes of Inverse Kinematics Class...." alt="" coords="185,5,335,32"/>
+</map>

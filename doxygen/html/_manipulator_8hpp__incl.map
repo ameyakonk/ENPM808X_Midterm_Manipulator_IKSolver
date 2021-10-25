@@ -1,5 +1,13 @@
 <map id="include/Manipulator.hpp" name="include/Manipulator.hpp">
-<area shape="rect" id="node1" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="31,5,210,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,116,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="141,80,221,107"/>
+<area shape="rect" id="node1" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="405,5,584,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="110,155,221,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,85,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="422,155,514,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="583,80,686,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="711,80,785,107"/>
+<area shape="rect" id="node7" href="$_inverse__kinematics_8hpp.html" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="279,80,457,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="335,155,398,181"/>
+<area shape="rect" id="node10" href="$_forward__kinematics_8hpp.html" title="BSD 3&#45;Clause License Copyright (c) 2021, ACME Robotics, Rahul Karanam , Ameya Konkar All rights reser..." alt="" coords="73,80,255,107"/>
+<area shape="rect" id="node11" title=" " alt="" coords="810,80,934,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="247,155,310,181"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reset_5fpose_57',['reset_pose',['../class_inverse___kinematics.html#a0d46eb4417f9f13e0fde22161975fef3',1,'Inverse_Kinematics']]]
+  ['print_5fik_5fsolver_60',['print_IK_solver',['../class_manipulator.html#ad0e202dcf57eb9f608ed8cd8e9ec7991',1,'Manipulator']]]
 ];

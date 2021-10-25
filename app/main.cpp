@@ -46,7 +46,7 @@
 #include "Manipulator.hpp"
 #include "Inverse_kinematics.hpp"
 #include "Forward_kinematics.hpp"
-#include "include/matplotlibcpp.h"
+#include "matplotlibcpp.h"
 namespace plt = matplotlibcpp;
 #define PI 3.14
 /**

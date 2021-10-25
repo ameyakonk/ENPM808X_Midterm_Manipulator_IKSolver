@@ -5,8 +5,11 @@ add_executable(
     main.cpp
     IK_test.cpp
     FK_test.cpp
+    Manip_test.cpp
     ../app/Inverse_kinematics.cpp
     ../app/Forward_kinematics.cpp
+    ../app/Manipulator.cpp
+    
 )
 include_directories(
     ${CMAKE_SOURCE_DIR}/include

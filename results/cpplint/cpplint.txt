@@ -1,0 +1,17 @@
+ubu@ubu-QEMU-Virtual-Machine:~/eclipse-workspace/ENPM808X_Midterm_Manipulator_IKSolver/app$ cpplint Forward_kinematics.cpp 
+Done processing Forward_kinematics.cpp
+ubu@ubu-QEMU-Virtual-Machine:~/eclipse-workspace/ENPM808X_Midterm_Manipulator_IKSolver/app$ cpplint Inverse_kinematics.cpp 
+Done processing Inverse_kinematics.cpp
+ubu@ubu-QEMU-Virtual-Machine:~/eclipse-workspace/ENPM808X_Midterm_Manipulator_IKSolver/app$ cpplint Manipulator.cpp 
+Done processing Manipulator.cpp
+ubu@ubu-QEMU-Virtual-Machine:~/eclipse-workspace/ENPM808X_Midterm_Manipulator_IKSolver/app$ cpplint main.cpp 
+Done processing main.cpp
+ubu@ubu-QEMU-Virtual-Machine:~/eclipse-workspace/ENPM808X_Midterm_Manipulator_IKSolver/include$ cpplint Forward_kinematics.hpp Inverse_kinematics.hpp Manipulator.hpp 
+Done processing Forward_kinematics.hpp
+Done processing Inverse_kinematics.hpp
+Done processing Manipulator.hpp
+ubu@ubu-QEMU-Virtual-Machine:~/eclipse-workspace/ENPM808X_Midterm_Manipulator_IKSolver/test$ cpplint FK_test.cpp IK_test.cpp main.cpp 
+Done processing FK_test.cpp
+Done processing IK_test.cpp
+Done processing main.cpp
+

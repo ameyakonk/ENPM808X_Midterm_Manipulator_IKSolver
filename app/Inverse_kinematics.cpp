@@ -63,11 +63,14 @@ std::vector<double> Inverse_Kinematics::convert_input_angles_to_rotation_matrix(
       input_joint_angles[i - 1])), 0.0f, sin(input_joint_angles[i - 1]), cos(
       input_joint_angles[i - 1]);
   Eigen::Matrix<double, 3, 3> PITCH;
-  PITCH << cos(input_joint_angles[i]), 0.0f, sin(input_joint_angles[i]), 0.0f, 1.0f, 0.0f, (-sin(
+  PITCH << cos(input_joint_angles[i]), 0.0f,
+      sin(input_joint_angles[i]), 0.0f, 1.0f, 0.0f, (-sin(
       input_joint_angles[i])), 0.0f, cos(input_joint_angles[i]);
   Eigen::Matrix<double, 3, 3> YAW;
-  YAW << cos(input_joint_angles[i + 1]), (-sin(input_joint_angles[i + 1])), 0.0f, sin(
-      input_joint_angles[i + 1]), cos(input_joint_angles[i + 1]), 0.0f, 0.0f, 0.0f, 1.0f;
+  YAW << cos(input_joint_angles[i + 1]),
+      (-sin(input_joint_angles[i + 1])), 0.0f, sin(
+      input_joint_angles[i + 1]), cos(input_joint_angles[i + 1]),
+      0.0f, 0.0f, 0.0f, 1.0f;
   Eigen::Matrix<double, 3, 3> ROTATION_MATRIX;
   ROTATION_MATRIX = YAW * PITCH * ROLL;
   std::vector<double> rotation_matrix;
@@ -75,10 +78,10 @@ std::vector<double> Inverse_Kinematics::convert_input_angles_to_rotation_matrix(
     rotation_matrix.push_back(ROTATION_MATRIX(r));
   /*  Setting input parameters */
   set_input_angles(rotation_matrix);
-  set_input_coordinates( { 5, 8.6, 5 });
-  set_dh_d( { 0, 5, 10, 0, 0, 0 });
-  set_dh_a( { 0, 0, 0, 0, 0, 0 });
-  set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
+  set_input_coordinates({ 5, 8.6, 5 });
+  set_dh_d({ 0, 5, 10, 0, 0, 0 });
+  set_dh_a({ 0, 0, 0, 0, 0, 0 });
+  set_dh_alpha({ -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
   solve_IK(get_input_coordinates(), get_input_angles());
   return rotation_matrix;
 }
@@ -106,15 +109,12 @@ void Inverse_Kinematics::solve_IK(
       0.5);
   theta[0] = atan(input_joint_coordinates[i] / input_joint_coordinates[i - 1])
       - atan(dh_d[i] / (pow(pow(r, 2) - pow(dh_d[i], 2), 0.5)));
-  theta[1] = atan(
-      ((cos(theta[0]) * input_joint_coordinates[i - 1])
-          + (sin(theta[0]) * input_joint_coordinates[i]))
+  theta[1] = atan(((cos(theta[0]) * input_joint_coordinates[i - 1])
+      +(sin(theta[0]) * input_joint_coordinates[i]))
           / input_joint_coordinates[i + 1]);
-  
   double d3 = (input_joint_coordinates[i - 1] * cos(theta[0]))
       + (sin(theta[0]) * input_joint_coordinates[i]) * sin(theta[1])
       + (input_joint_coordinates[i + 1] * cos(theta[1]));
-  
   theta[3] = atan(
       ((-sin(theta[0])) * input_joint_angles[i + 5]
           + cos(theta[0]) * input_joint_angles[i + 6])

@@ -48,7 +48,8 @@ using Eigen::Matrix;
  * @fn void solve_FK(std::vector<double>)
  * @brief This Function will compute the ForwardKinematics
  *        for the given input joint angles and
- *        sets the end effector coordinates to output_coordinates.
+ *        sets the end effector coordinates to output_coordinates
+ *        end_effector pose to current_pose.
  *
  * @param _input_joint_angles is the Robot Manipulator Joint angles
  * @return None
@@ -68,7 +69,7 @@ void Forward_Kinematics::solve_FK(
 
   // Created a 4 X 4 matrix for the final transformation matrix
   Matrix4f final_transformation_matrix;
-
+  // Updating the values of alpha,d,a and the theta in the final transformation matrix.
   final_transformation_matrix(0, 0) = cos(_input_joint_angles[0])
       * (cos(_input_joint_angles[1])
           * (cos(_input_joint_angles[5]) * cos(_input_joint_angles[3])
@@ -160,7 +161,9 @@ void Forward_Kinematics::solve_FK(
   /* extracting X,Y,Z from the final_transformation_matrix. */
   // to store the end-effector(X,Y,Z) positions
   std::vector<double> end_effector_coordinates;
-
+  /* Extracting the Rotation matrix from the transformation matrix and
+   * return it to a vectorend_effector_pose.
+   */
   std::vector<double> end_effector_pose;
   end_effector_pose.push_back(final_transformation_matrix(0, 0));
   end_effector_pose.push_back(final_transformation_matrix(0, 1));
@@ -177,6 +180,7 @@ void Forward_Kinematics::solve_FK(
   end_effector_coordinates.push_back(final_transformation_matrix(3, 2));
   // setting the output_coordinates as end_effector_coordinates
   set_output_coordinates(end_effector_coordinates);
+  //setting the current_pose as end_effector_pose
   set_current_pose(end_effector_pose);
 }
 /**

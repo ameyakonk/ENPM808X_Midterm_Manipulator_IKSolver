@@ -46,9 +46,7 @@
 #include <iomanip>
 #include "Inverse_kinematics.hpp"
 #include "Forward_kinematics.hpp"
-#include "matplotlibcpp.h"
 #include <cmath>
-namespace plt = matplotlibcpp;
 #define PI 3.14
 using std::cout;
 using std::endl;
@@ -69,10 +67,10 @@ class Manipulator {
   /**
      * @fn void print_IK_solver()
    * @brief It will print out the IK and FK for the given inputs.
-   * @return None
+   * @return int
    *
    */
-  void print_IK_solver();
+  int print_IK_solver();
 };
 
 

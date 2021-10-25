@@ -36,7 +36,7 @@
  */
 // Header Files
 #include "Manipulator.hpp"
-void Manipulator::print_IK_solver() {
+int Manipulator::print_IK_solver() {
   // Instantiating Inverse_kinematics class
     Inverse_Kinematics I;
     // Instantiating Forward kinematics class
@@ -134,4 +134,5 @@ void Manipulator::print_IK_solver() {
                I.get_output_angles()[j]<< std::endl;
         }
      }
+     return 3;
 }

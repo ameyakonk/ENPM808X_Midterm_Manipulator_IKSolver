@@ -13,5 +13,6 @@ Done processing Manipulator.hpp
 ubu@ubu-QEMU-Virtual-Machine:~/eclipse-workspace/ENPM808X_Midterm_Manipulator_IKSolver/test$ cpplint FK_test.cpp IK_test.cpp main.cpp 
 Done processing FK_test.cpp
 Done processing IK_test.cpp
+Done processing Manip_test.cpp
 Done processing main.cpp
 

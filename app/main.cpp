@@ -66,7 +66,7 @@ int main() {
 	Forward_Kinematics F;
 	//std::vector<double> end {PI / 4, PI / 6, 0, PI / 3, PI / 3, PI /2 };
     //std::vector<double> current_pose {-0.66,0.43,0.61,0.73,0.21,0.64,0.149,0.87,-0.46};
-    std::vector<double> current_pose {-0.88,-0.17,0.43,0.45,-0.15,0.87,-0.08,0.97,0.21};
+    //std::vector<double> current_pose {-0.88,-0.17,0.43,0.45,-0.15,0.87,-0.08,0.97,0.21};
     //std::vector<double> current_pose {-0.9,-0.01,0.3,0.33,-0.67,0.66,0.28,0.7,0.61};
     //std::vector<double> current_pose {-0.99,-0.12,0.055,-0.12,0.74,0.66,-0.04,0.66,-0.74};
 
@@ -75,12 +75,12 @@ int main() {
     I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
 
     //I.set_input_coordinates({5,8.66,5});
-    I.set_input_coordinates({0.001,7.06,8.66});
+    //I.set_input_coordinates({0.001,7.06,8.66});
     //I.set_input_coordinates({3.62,7.8,7});
     //I.set_input_coordinates({2.6,9.6,5});
 
 	//F.solve_FK(end);
-    I.solve_IK(I.get_input_coordinates(),current_pose);
+    //I.solve_IK(I.get_input_coordinates(),current_pose);
     //std::vector<double> tet;
     F.solve_FK(I.get_output_angles());
 	for (int j = 0; j < 3; j++) {

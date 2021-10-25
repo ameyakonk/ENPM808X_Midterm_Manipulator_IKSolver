@@ -25,7 +25,7 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * @file Manipulator.hpp
+ * @file /include/Manipulator.hpp
  * @author Rahul Karanam , Ameya Konkar
  * @copyright BSD 3-Clause License
  *
@@ -35,10 +35,24 @@
  */
 
 // Header Files
+
 #ifndef INCLUDE_MANIPULATOR_HPP_
 #define INCLUDE_MANIPULATOR_HPP_
 #include<bits/stdc++.h>
 #include<iostream>
+#include "Eigen/Core"
+#include "Eigen/Dense"
+#include <iostream>
+#include <iomanip>
+#include "Inverse_kinematics.hpp"
+#include "Forward_kinematics.hpp"
+#include "matplotlibcpp.h"
+#include <cmath>
+namespace plt = matplotlibcpp;
+#define PI 3.14
+using std::cout;
+using std::endl;
+using namespace Eigen;
 
 /**
  * @class Manipulator
@@ -46,10 +60,21 @@
  *
  */
 class Manipulator {
+ public:
   // Instantiating he inverse_kinematics class
   Inverse_Kinematics I;
   // Instantiating the forward kinematics class
   Forward_Kinematics F;
+
+  /**
+     * @fn void print_IK_solver()
+   * @brief It will print out the IK and FK for the given inputs.
+   * @return None
+   *
+   */
+  void print_IK_solver();
 };
+
+
 #endif  // INCLUDE_MANIPULATOR_HPP_
 

@@ -43,7 +43,6 @@
 #include "Eigen/Dense"
 #include "Inverse_kinematics.hpp"
 using Eigen::Matrix;
-//using namespace Eigen;
 /**
  * @fn void solve_FK(std::vector<double>)
  * @brief This Function will compute the ForwardKinematics
@@ -59,17 +58,18 @@ void Forward_Kinematics::solve_FK(
 
   Inverse_Kinematics I;  // Calling an object from the Inverse Kinematics Class
   // set the dh_d for the given inputs
-  I.set_dh_d( { 0, 5, 10, 0, 0, 0 });
+  I.set_dh_d({ 0, 5, 10, 0, 0, 0 });
   // set the df_a for the given inputs
-  I.set_dh_a( { 0, 0, 0, 0, 0, 0 });
+  I.set_dh_a({ 0, 0, 0, 0, 0, 0 });
   // set the dh_alpha for the given inputs.
-  I.set_dh_alpha( { -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
+  I.set_dh_alpha({ -PI / 2, PI / 2, 0, (-PI / 2), PI / 2, 0 });
   // Creating a 4 X 4 matrix for the transformation matrix
   typedef Matrix<double, 4, 4> Matrix4f;
 
   // Created a 4 X 4 matrix for the final transformation matrix
   Matrix4f final_transformation_matrix;
-  // Updating the values of alpha,d,a and the theta in the final transformation matrix.
+  // Updating the values of alpha,d,a and the theta in the final transformation
+  // matrix.
   final_transformation_matrix(0, 0) = cos(_input_joint_angles[0])
       * (cos(_input_joint_angles[1])
           * (cos(_input_joint_angles[5]) * cos(_input_joint_angles[3])
@@ -129,7 +129,6 @@ void Forward_Kinematics::solve_FK(
           * sin(_input_joint_angles[5])
       + cos(_input_joint_angles[5]) * sin(_input_joint_angles[1])
           * sin(_input_joint_angles[3]);
-  ;
   final_transformation_matrix(1, 3) = 0;
   final_transformation_matrix(2, 0) = cos(_input_joint_angles[0])
       * (cos(_input_joint_angles[1]) * cos(_input_joint_angles[3])
@@ -143,7 +142,6 @@ void Forward_Kinematics::solve_FK(
           + cos(_input_joint_angles[4]) * sin(_input_joint_angles[1]))
       + cos(_input_joint_angles[0]) * sin(_input_joint_angles[3])
           * sin(_input_joint_angles[4]);
-  ;
   final_transformation_matrix(2, 2) = -sin(_input_joint_angles[1])
       * cos(_input_joint_angles[3]) * sin(_input_joint_angles[4])
       + cos(_input_joint_angles[4]) * cos(_input_joint_angles[1]);
@@ -180,7 +178,7 @@ void Forward_Kinematics::solve_FK(
   end_effector_coordinates.push_back(final_transformation_matrix(3, 2));
   // setting the output_coordinates as end_effector_coordinates
   set_output_coordinates(end_effector_coordinates);
-  //setting the current_pose as end_effector_pose
+  // setting the current_pose as end_effector_pose
   set_current_pose(end_effector_pose);
 }
 /**

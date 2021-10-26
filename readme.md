@@ -54,7 +54,7 @@ We are developing an inverse kinematics solver for 6 DOF serial Manipulators at 
 We have simulated our output using visual-Kinematics(matplotlib).
 
 
-![Demo](https://imgur.com/a/wFRibqu)
+![Demo](https://drive.google.com/uc?export=view&id=1ljiG37XoZcMbhOYgw9_6Ke2om4XiOMBb)
 
 ## Approach
 
